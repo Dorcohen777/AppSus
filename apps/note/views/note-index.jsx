@@ -4,12 +4,15 @@ const { Link, useSearchParams } = ReactRouterDOM
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { CreateNote } from '../views/note-create.jsx'
+import { EditNote } from '../cmps/note-edit-note.jsx'
 
 export function NoteIndex() {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [notes, setNotes] = useState([])
     const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter(searchParams))
+    const [isNoteEdit, setEditNote] = useState(false)
+    const [currNoteId, setNoteId] = useState('')
 
     useEffect(() => {
         loadNotes()
@@ -30,6 +33,12 @@ export function NoteIndex() {
         })
     }
 
+    function onEditNote(noteId) {
+        console.log(noteId)
+        setEditNote(!isNoteEdit)
+        setNoteId(noteId)
+    }
+
 
     function onSetFilter(filterBy) {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
@@ -38,8 +47,9 @@ export function NoteIndex() {
     return (
         <main>
             <h1>Hello from note app</h1>
+            {isNoteEdit && <EditNote currNoteId={currNoteId} addNoteToList={addNoteToList} />}
             <CreateNote addNoteToList={addNoteToList} />
-            <NoteList notes={notes} onRemoveNote={onRemoveNote}/>
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} />
         </main>
     )
 }

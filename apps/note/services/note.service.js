@@ -13,6 +13,7 @@ export const noteService = {
     buildNoteText,
     buildNoteImage,
     remove,
+    get,
 }
 
 function query(filterBy = {}) {
@@ -25,6 +26,10 @@ function query(filterBy = {}) {
 
             return notes
         })
+}
+
+function get(noteId) {
+    return asyncStorageService.get(NOTES_KEY, noteId)
 }
 
 function remove(noteId) {
@@ -70,6 +75,7 @@ function buildNoteImage(txt, imgVal) {
     }
     return imgNote
 }
+
 // for handing new note when user click add button
 function buildNoteText(txtVal) {
     const textNote = {

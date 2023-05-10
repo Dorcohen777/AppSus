@@ -2,7 +2,7 @@ const { Link } = ReactRouterDOM
 
 import { NotePreview } from "./note-preview.jsx"
 
-export function NoteList({ notes, onRemoveNote }) {
+export function NoteList({ notes, onRemoveNote, onEditNote }) {
 
     console.log(notes)
 
@@ -15,10 +15,10 @@ export function NoteList({ notes, onRemoveNote }) {
                         <NotePreview note={note} />
                         <div className="div-actions">
                             <button onClick={() => onRemoveNote(note.id)}><i className="fa-solid fa-trash"></i></button>
-                            <button><i className="fa-solid fa-pen-to-square"></i></button>
+                            <button onClick={() => onEditNote(note.id)}><i className="fa-solid fa-pen-to-square"></i></button>
                             <button><i className="fa-solid fa-palette"></i></button>
-                            <button><i className="fa-solid fa-thumbtack"></i></button>
                             <button><i className="fa-solid fa-clone"></i></button>
+                            <button><i className="fa-solid fa-thumbtack"></i></button>
                         </div>
                     </section>
                 </li>

@@ -56,11 +56,6 @@ export function CreateNote({ addNoteToList }) {
         console.log(inputValue)
     }
 
-    // TODO when user choice image 
-    // change component using continal rendering
-    // create new image object and save it to local storage using createNewNote
-    // re-redner component using addNoteToList
-
     function onSubmitNote(ev) {
         console.log('adding')
         ev.preventDefault()
@@ -71,8 +66,8 @@ export function CreateNote({ addNoteToList }) {
         } else if (isImg) {
             console.log('hello img', inputValue)
             console.log('your url is', inputValueUrl)
-            noteService.createNewNote(inputValue, "NoteImg", inputValueUrl)
-            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl)
+            noteService.createNewNote(inputValue, "NoteImg", inputValueUrl) 
+            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl) //
             addNoteToList(newImg)
         }
     }
@@ -88,7 +83,6 @@ export function CreateNote({ addNoteToList }) {
                     <button><i className="fa-solid fa-video"></i></button>
                     <button><i className="fa-solid fa-list"></i></button>
                 </div>
-                {/*     {showImageComponent ? <ImageComponent /> : <TextComponent />} */}
 
                 <div>
                     {showTextComponent && <NewTextNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
