@@ -1,0 +1,71 @@
+.mail-table,
+.mail-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.mail-table {
+    width: 100%;
+}
+
+.mail-table span{
+    overflow-x: hidden;
+}
+
+.mail-table td {
+    display: flex;
+    position: relative;
+
+}
+
+.mail-table td>* {
+    padding-inline: 40px;
+    padding-block: 5px;
+}
+
+.mail-table td:hover{
+    border: 2px solid black;
+}
+
+.mail-title {
+    flex-grow: 4;
+}
+
+.mail-content {
+    flex-grow: 9;
+}
+
+.mail-date-buttons{
+    flex-grow: 1;
+    width: 10%;
+}
+
+.mail-buttons{
+    display: none;
+}
+
+td:hover .mail-buttons{
+    display: inline-block;
+}
+
+td:hover .mail-date{
+    display: none;
+}
+
+/* .mail-date {
+    flex-grow: 1;
+}
+
+.mail-buttons {
+    display: none;
+    position: absolute;
+}
+
+.mail-table td:hover .mail-buttons {
+    display: block;
+    right: 0;
+}
+
+.mail-table td:hover .mail-date{
+   opacity: 0;
+} */
