@@ -3,6 +3,7 @@ const { Link, useSearchParams } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
+
 export function NoteIndex() {
 
     const [searchParams, setSearchParams] = useSearchParams()
