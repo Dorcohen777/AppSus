@@ -14,9 +14,11 @@ export function NoteList({ notes }) {
                     <section className="section-notes" >
                         <NotePreview note={note} />
                         <div className="div-actions">
-                            <button>remove</button>
-                            <button>edit</button>
-                            <button>change color</button>
+                            <button><i class="fa-solid fa-trash"></i></button>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button><i class="fa-solid fa-palette"></i></button>
+                            <button><i class="fa-solid fa-thumbtack"></i></button>
+                            <button><i class="fa-solid fa-clone"></i></button>
                         </div>
                     </section>
                 </li>
