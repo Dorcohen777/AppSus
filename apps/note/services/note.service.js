@@ -28,7 +28,7 @@ function query(filterBy = {}) {
 }
 
 function remove(noteId) {
-    return storageService.remove(NOTES_KEY, noteId)
+    return asyncStorageService.remove(NOTES_KEY, noteId)
 }
 
 function getDefaultFilter(searchParams = { get: () => { } }) {
