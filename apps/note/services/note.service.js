@@ -35,7 +35,14 @@ function getDefaultFilter(searchParams = { get: () => { } }) {
     }
 }
 
-// Private functions 
+
+
+
+
+
+
+
+////////////////////// Private functions //////////////////////
 function _createNotes() {
     let notes = storageService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
@@ -55,11 +62,11 @@ function _createNotes() {
 function _createNoteText() {
     const textNote = {
         id: utilService.makeId(),
-        createdAt: getCurrentDate(),
+        createdAt: utilService.getCurrentDate(),
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: getRandomColor()
+            backgroundColor: utilService.getRandomColor()
         },
         info: {
             txt: utilService.makeLorem(5)
@@ -79,7 +86,7 @@ function _createNoteImg() {
             title: utilService.makeLorem(3),
         },
         style: {
-            backgroundColor: getRandomColor()
+            backgroundColor: utilService.getRandomColor()
         },
     }
     return imgNote
@@ -95,39 +102,13 @@ function _createNoteTodos() {
             title: utilService.makeLorem(4),
             todos: [
                 { txt: utilService.makeLorem(3), doneAt: null },
-                { txt: utilService.makeLorem(3), doneAt: getRandomFutureTimestamp() }
+                { txt: utilService.makeLorem(3), doneAt: utilService.getRandomFutureTimestamp() }
             ]
         }
     }
     return todosNote
 }
 
-// return current date
-function getCurrentDate() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed, so we add 1 and pad with a leading zero if needed
-    const day = date.getDate().toString().padStart(2, '0'); // Pad with a leading zero if needed
-    return `${year}-${month}-${day}`;
-}
-
-// return random color
-function getRandomColor() {
-    const letters = '0123456789ABCDEF'; // Hexadecimal digits
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)]; // Pick a random digit and append to the color string
-    }
-    return color;
-}
-
-function getRandomFutureTimestamp() {
-    const now = Date.now(); // Get the current timestamp
-    const maxOffset = 1000 * 60 * 60 * 24 * 365; // Maximum offset of 1 year (in milliseconds)
-    const randomOffset = Math.floor(Math.random() * maxOffset); // Generate a random offset between 0 and maxOffset
-    const futureTimestamp = now + randomOffset; // Add the offset to the current timestamp to get a future timestamp
-    return futureTimestamp;
-}
 
 
 
