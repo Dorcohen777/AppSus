@@ -9,7 +9,8 @@
 }
 
 .mail-table span{
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    white-space: nowrap;
 }
 
 .mail-table td {
