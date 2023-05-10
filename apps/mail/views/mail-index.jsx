@@ -6,6 +6,7 @@ const { useState, useEffect } = React
 
 
 export function MailIndex() {
+    //BETTER TO KEEP THE USE STATE IN THE LOWEST DESCENDANT POSSIBLE
     const [isMailAdd, setIsMailAdd] = useState(false)
 
     useEffect(() => {

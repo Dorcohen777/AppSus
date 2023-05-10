@@ -10,6 +10,7 @@ export const mailService = {
     get,
     remove,
     save,
+    getEmptyNewMail,
 }
 
 
@@ -48,6 +49,19 @@ function save(mail) {
     }
 }
 
+
+function getEmptyNewMail(){
+    return{
+        id: utilService.makeId(),
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: null,
+        removedAt: null,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com', 
+    }
+}
 
 //------------PRIVATE FUNCTIONS------------//
 
