@@ -15,7 +15,6 @@
 .mail-table td {
     display: flex;
     position: relative;
-
 }
 
 .mail-table td>* {
@@ -51,21 +50,3 @@ td:hover .mail-buttons{
 td:hover .mail-date{
     display: none;
 }
-
-/* .mail-date {
-    flex-grow: 1;
-}
-
-.mail-buttons {
-    display: none;
-    position: absolute;
-}
-
-.mail-table td:hover .mail-buttons {
-    display: block;
-    right: 0;
-}
-
-.mail-table td:hover .mail-date{
-   opacity: 0;
-} */

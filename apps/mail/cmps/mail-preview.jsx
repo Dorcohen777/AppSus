@@ -11,11 +11,6 @@ export function MailPreview({ mail }) {
 
     return (
         <tr>
-            {/* <td>title</td>
-            <td>content</td>
-            <td>date</td>
-            <td>buttons on hover</td> */}
-
             <td>
                 <section className="mail-title"><span>{mail.subject}</span></section>
                 <section className="mail-content"><span>{mail.body}</span></section>
