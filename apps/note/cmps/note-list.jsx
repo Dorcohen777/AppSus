@@ -4,6 +4,8 @@ import { NotePreview } from "./note-preview.jsx"
 
 export function NoteList({ notes }) {
 
+    console.log(notes)
+    
     return (
         <ul className="ul-notes">
 

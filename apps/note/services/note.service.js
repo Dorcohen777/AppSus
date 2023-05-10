@@ -9,35 +9,101 @@ _createNotes()
 export const noteService = {
     query,
     getDefaultFilter,
-    
+    createNewNote,
+    buildNoteText,
+    buildNoteImage,
 }
 
 function query(filterBy = {}) {
     return asyncStorageService.query(NOTES_KEY)
-    .then((notes) => {
-        if (filterBy.txt) {
-            const regExp = new RegExp(filterBy.txt, 'i')
-            notes = notes.filter(note => regExp.test(note.type))
-        }
+        .then((notes) => {
+            if (filterBy.txt) {
+                const regExp = new RegExp(filterBy.txt, 'i')
+                notes = notes.filter(note => regExp.test(note.type))
+            }
 
-        return notes
-    })
+            return notes
+        })
 }
-
-
-
-
-
-
-
-
-
 
 function getDefaultFilter(searchParams = { get: () => { } }) {
     return {
         txt: searchParams.get('txt') || '',
     }
 }
+
+function createNewNote(value, type, valueUrl) {
+    console.log('from service', value, type)
+
+    if (type === 'NoteTxt') {
+        let newText = buildNoteText(value)
+        asyncStorageService.post(NOTES_KEY, newText)
+            .then(() => console.log('added new note'))
+            .catch((err) => console.log(err))
+    } else if (type === 'NoteImg') {
+        let newImg = buildNoteImage(value, valueUrl)
+        asyncStorageService.post(NOTES_KEY, newImg)
+            .then(() => console.log('added new image'))
+            .catch((err) => console.log('failed to add new image', err))
+    }
+}
+
+
+// for handing new image when user click add button
+function buildNoteImage(txt, imgVal) {
+    const imgNote = {
+        id: utilService.makeId(),
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: imgVal,
+            title: txt,
+        },
+        style: {
+            backgroundColor: utilService.getRandomColor()
+        },
+    }
+    return imgNote
+}
+// for handing new note when user click add button
+function buildNoteText(txtVal) {
+    const textNote = {
+        id: utilService.makeId(),
+        createdAt: utilService.getCurrentDate(),
+        type: 'NoteTxt',
+        isPinned: false,
+        style: {
+            backgroundColor: utilService.getRandomColor()
+        },
+        info: {
+            txt: txtVal
+        },
+    }
+    return textNote
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ////////////////////// Private functions //////////////////////
 
@@ -70,7 +136,7 @@ function _createNoteText() {
             txt: utilService.makeLorem(5)
         },
     }
-    
+
     return textNote
 }
 
