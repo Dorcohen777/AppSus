@@ -19,6 +19,11 @@ export function NoteIndex() {
         noteService.query(filterBy).then(notes => setNotes(notes))
     }
 
+    function addNoteToList(note) {
+        setNotes((prevNotes) => [...prevNotes, note]);
+    }
+
+
     function onSetFilter(filterBy) {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
@@ -26,7 +31,7 @@ export function NoteIndex() {
     return (
         <main>
             <h1>Hello from note app</h1>
-            <CreateNote />
+            <CreateNote addNoteToList={addNoteToList} />
             <NoteList notes={notes} />
         </main>
     )
