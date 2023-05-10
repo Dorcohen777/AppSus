@@ -1,5 +1,5 @@
 // note service
-import { asyncStorageService } from '../../../services/async-storage.service'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
 
@@ -40,13 +40,13 @@ function _createNotes() {
     let notes = storageService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {
         notes = []
-        notes.push(_createNoteText)
-        notes.push(_createNoteTodos)
-        notes.push(_createNoteImg)
-        notes.push(_createNoteText)
-        notes.push(_createNoteText)
-        notes.push(_createNoteText)
-        notes.push(_createNoteImg)
+        notes.push(_createNoteText())
+        notes.push(_createNoteTodos())
+        notes.push(_createNoteImg())
+        notes.push(_createNoteText())
+        notes.push(_createNoteText())
+        notes.push(_createNoteText())
+        notes.push(_createNoteImg())
 
         storageService.saveToStorage(NOTES_KEY, notes)
     }
@@ -65,6 +65,7 @@ function _createNoteText() {
             txt: utilService.makeLorem(5)
         },
     }
+    
     return textNote
 }
 
@@ -72,7 +73,7 @@ function _createNoteImg() {
     const imgNote = {
         id: utilService.makeId(),
         type: 'NoteImg',
-        inPinned: false,
+        isPinned: false,
         info: {
             url: 'https://picsum.photos/200/300',
             title: utilService.makeLorem(3),
@@ -83,6 +84,7 @@ function _createNoteImg() {
     }
     return imgNote
 }
+
 
 function _createNoteTodos() {
     const todosNote = {

@@ -2,7 +2,7 @@ const { useEffect, useState } = React
 const { Link, useSearchParams } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
-
+import { NoteList } from '../cmps/note-list.jsx'
 export function NoteIndex() {
 
     const [searchParams, setSearchParams] = useSearchParams()
@@ -14,13 +14,17 @@ export function NoteIndex() {
     }, [filterBy])
 
     function loadNotes() {
-        noteService.query(filterBy)
-            .then(notes => setNotes(notes))
+        noteService.query(filterBy).then(notes => setNotes(notes))
+    }
+
+    function onSetFilter(filterBy) {
+        setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
 
     return (
         <main>
             <h1>Hello from note app</h1>
+            <NoteList notes={notes}/>
         </main>
     )
 }
