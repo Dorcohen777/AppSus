@@ -10,7 +10,7 @@ export function MailList() {
 
     useEffect(() => {
         loadMails()
-    }, [mails])
+    }, [])
 
     function loadMails() {
         mailService.query()
