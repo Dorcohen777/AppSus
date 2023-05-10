@@ -19,6 +19,15 @@
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
 
+/* mail app cmps*/
+
 @import './apps/mail/cmps/mail-main.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-nav-side-bar.css';
+
+/* note app cmps*/
+@import './apps/note/cmps/note-list.css';
+
+/* note app views */
+@import './apps/note/views/note-index.css';
+@import './apps/note/cmps/note-preview.css'
