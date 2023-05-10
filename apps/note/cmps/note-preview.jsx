@@ -1,5 +1,5 @@
 export function NotePreview({ note }) {
-    console.log(note.type, note)
+
 
     return (
         <article className="note-item">
@@ -12,10 +12,10 @@ export function NotePreview({ note }) {
             {note.type === 'NoteTodos' && (
                 <div className="note-todos">
                     <h2>{note.info.title}</h2>
-                    <ul className="ul-todos">
-                        {note.info.todos.map((todo) => {
+                    <ul className="ul-todos" >
+                        {note.info.todos.map((todo, idx) => {
                             return (
-                                <li key={todo.id}>
+                                <li key={idx}>
                                     {todo.txt}
                                 </li>
                             );
@@ -25,11 +25,11 @@ export function NotePreview({ note }) {
             )}
             {note.type === 'NoteImg' && (
                 <div className="note-img">
-                    <img src={note.info.url}/>
+                    <img src={note.info.url} />
                     <h2>{note.info.title}</h2>
                 </div>
             )}
-            
+
         </article>
     );
 }

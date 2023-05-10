@@ -29,20 +29,18 @@ function query(filterBy = {}) {
 
 
 
+
+
+
+
 function getDefaultFilter(searchParams = { get: () => { } }) {
     return {
         txt: searchParams.get('txt') || '',
     }
 }
 
-
-
-
-
-
-
-
 ////////////////////// Private functions //////////////////////
+
 function _createNotes() {
     let notes = storageService.loadFromStorage(NOTES_KEY)
     if (!notes || !notes.length) {

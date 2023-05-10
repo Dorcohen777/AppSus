@@ -3,6 +3,7 @@ const { Link, useSearchParams } = ReactRouterDOM
 
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
+import { CreateNote } from '../views/note-create.jsx'
 
 export function NoteIndex() {
 
@@ -25,7 +26,8 @@ export function NoteIndex() {
     return (
         <main>
             <h1>Hello from note app</h1>
-            <NoteList notes={notes}/>
+            <CreateNote />
+            <NoteList notes={notes} />
         </main>
     )
 }
