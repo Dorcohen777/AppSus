@@ -20,9 +20,10 @@ export function MailList() {
     return (
         <section className="mail-list">
             <h2>Mail list here</h2>
-            <table>
+            <table className="mail-table">
                 <tbody>
-                    <MailPreview mails={mails} />
+                    {mails.map((mail) =>
+                        <MailPreview key={`${mail.id}`} mail={mail} />)}
                 </tbody>
             </table>
         </section>

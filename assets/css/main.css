@@ -20,10 +20,10 @@
 @import './cmps/app-header.css';
 
 /* mail app cmps*/
-
 @import './apps/mail/cmps/mail-main.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-nav-side-bar.css';
+@import './apps/mail/cmps/mail-preview.css';
 
 /* note app cmps*/
 @import './apps/note/cmps/note-list.css';

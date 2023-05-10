@@ -7,6 +7,5 @@ export function MailMain() {
             <MailNavSideBar />
             <MailList />
         </section>
-
     )
 }
