@@ -6,6 +6,9 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
+    getCurrentDate,
+    getRandomFutureTimestamp,
+
 }
 
 function makeId(length = 6) {
@@ -59,4 +62,21 @@ function getMonthName(date) {
         "July", "August", "September", "October", "November", "December"
     ]
     return monthNames[date.getMonth()]
+}
+
+// return current date
+function getCurrentDate() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed, so we add 1 and pad with a leading zero if needed
+    const day = date.getDate().toString().padStart(2, '0'); // Pad with a leading zero if needed
+    return `${year}-${month}-${day}`;
+}
+
+function getRandomFutureTimestamp() {
+    const now = Date.now(); // Get the current timestamp
+    const maxOffset = 1000 * 60 * 60 * 24 * 365; // Maximum offset of 1 year (in milliseconds)
+    const randomOffset = Math.floor(Math.random() * maxOffset); // Generate a random offset between 0 and maxOffset
+    const futureTimestamp = now + randomOffset; // Add the offset to the current timestamp to get a future timestamp
+    return futureTimestamp;
 }
