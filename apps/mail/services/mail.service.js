@@ -1,7 +1,9 @@
 import { utilService } from "../../../services/util.service.js"
 import { asyncStorageService } from "../../../services/async-storage.service.js"
+import { storageService } from "../../../services/storage.service.js"
 
 const MAIL_KEY = 'mailDB'
+_createMails()
 
 export const mailService = {
     query,
@@ -10,8 +12,12 @@ export const mailService = {
     save,
 }
 
+
+
+
+
 function query(filterBy = {}) {
-    return storageService.query(MAIL_KEY)
+    return asyncStorageService.query(MAIL_KEY)
         .then(mails => {
             // if (filterBy.name) {
             //     console.log('mails', mails)
@@ -27,23 +33,31 @@ function query(filterBy = {}) {
 }
 
 function get(mailId) {
-    return storageService.get(MAIL_KEY, mailId)
+    return asyncStorageService.get(MAIL_KEY, mailId)
 }
 
 function remove(mailId) {
-    return storageService.remove(MAIL_KEY, mailId)
+    return asyncStorageService.remove(MAIL_KEY, mailId)
 }
 
 function save(mail) {
     if (mail.id) {
-        return storageService.put(MAIL_KEY, mail)
+        return asyncStorageService.put(MAIL_KEY, mail)
     } else {
-        return storageService.post(MAIL_KEY, mail)
+        return asyncStorageService.post(MAIL_KEY, mail)
     }
 }
 
 
 //------------PRIVATE FUNCTIONS------------//
+
+function _createMails() {
+    const newMails = []
+
+    newMails.push(_createMail(),_createMail(),_createMail())
+    console.log('newMails', newMails)
+    storageService.saveToStorage(MAIL_KEY, newMails)
+}
 
 
 function _createMail() {
@@ -52,9 +66,9 @@ function _createMail() {
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt: utilService.getRandomPastTimestamp(),
         removedAt: null,
         from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
     }
 }
