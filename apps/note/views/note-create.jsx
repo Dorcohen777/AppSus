@@ -81,7 +81,7 @@ export function CreateNote({ addNoteToList }) {
         <section className='section-create'>
 
             <div className='div-create-note'>
-
+                <h1>Choice your note</h1>
                 <div>
                     <button onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>
                     <button onClick={() => onImageClick()}><i className="fa-solid fa-image"></i></button>

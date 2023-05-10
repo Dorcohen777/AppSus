@@ -12,6 +12,7 @@ export const noteService = {
     createNewNote,
     buildNoteText,
     buildNoteImage,
+    remove,
 }
 
 function query(filterBy = {}) {
@@ -24,6 +25,10 @@ function query(filterBy = {}) {
 
             return notes
         })
+}
+
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
 }
 
 function getDefaultFilter(searchParams = { get: () => { } }) {
