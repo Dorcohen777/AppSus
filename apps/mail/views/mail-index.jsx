@@ -1,17 +1,13 @@
-import { MailList } from "../cmps/mail-list.jsx"
-import { MailNavSideBar } from "../cmps/mail-nav-side-bar.jsx"
 import { MailHeader } from "../cmps/mail-header.jsx"
-
+import { MailMain } from "../cmps/mail-main.jsx"
 
 
 export function MailIndex() {
 
-
     return (
         <section className="mail-index">
             <MailHeader />
-            <MailNavSideBar />
-            <MailList />
+            <MailMain/>
         </section>
     )
 }
