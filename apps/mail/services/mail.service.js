@@ -52,11 +52,12 @@ function save(mail) {
 //------------PRIVATE FUNCTIONS------------//
 
 function _createMails() {
-    const newMails = []
-
-    newMails.push(_createMail(),_createMail(),_createMail())
-    console.log('newMails', newMails)
-    storageService.saveToStorage(MAIL_KEY, newMails)
+    const newMails = storageService.loadFromStorage(MAIL_KEY) || []
+    if (!newMails || newMails.length < 1) {
+        newMails.push(_createMail(), _createMail(), _createMail())
+        console.log('newMails', newMails)
+        storageService.saveToStorage(MAIL_KEY, newMails)
+    }
 }
 
 

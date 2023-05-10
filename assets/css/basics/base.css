@@ -21,3 +21,19 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+.btnLook,
+.btnLookIcon {
+    background-color: var(--mail-bg-clr0);
+}
+
+.btnLookIcon {
+    padding-inline: 5px;
+    margin-inline: 5px;
+}
+
+.btnLookIcon:hover,
+.btnLook:hover {
+    background-color: var(--mail-bg-clr1);
+    cursor: pointer;
+}

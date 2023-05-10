@@ -3,7 +3,7 @@ import { mailService } from "../services/mail.service.js"
 
 const { useEffect } = React
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mail,onArchiveMail,onTrashMail,onToggleReadState }) {
 
     useEffect(() => {
         console.log('mail from mail preview', mail)
@@ -16,6 +16,9 @@ export function MailPreview({ mail }) {
         return `${date.getDate()} ${utilService.getMonthName(date)}`
     }
 
+
+
+    //TODO: make css for class btnLook
     return (
         <tr>
             <td>
@@ -24,12 +27,12 @@ export function MailPreview({ mail }) {
                 <section className="mail-date-buttons">
                     <article className="mail-date"><span>{renderDate(mail.sentAt)}</span></article>
                     <article className="mail-buttons"><span>
-                        <i className="fa-solid fa-box-archive"></i>
-                        <i className="fa-solid fa-trash"></i>
-                        <i className="fa-solid fa-envelope-open"></i>
+                        <i className="btnLookIcon fa-solid fa-box-archive" onClick={() => onArchiveMail(mail.id)}></i>
+                        <i className="btnLookIcon fa-solid fa-trash" onClick={() => onTrashMail(mail.id)}></i>
+                        <i className="btnLookIcon fa-solid fa-envelope-open" onClick={() => onToggleReadState(mail.id)} ></i>
                     </span></article>
                 </section>
             </td>
-        </tr>
+        </tr >
     )
 }

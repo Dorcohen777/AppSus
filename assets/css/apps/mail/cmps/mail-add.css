@@ -1,0 +1,16 @@
+.mail-add-modal {
+    position: absolute;
+    display: block;
+    inset: auto 15px 0 auto;
+    padding-block-end: 1.5em;
+    background-color: var(--mail-bg-clr0);
+}
+
+.mail-add-modal>* {
+    padding: 1em;
+    width: 400px;
+}
+
+.mail-add-modal input{
+    width: 100%;
+}

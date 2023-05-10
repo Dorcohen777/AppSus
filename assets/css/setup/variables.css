@@ -1,3 +1,7 @@
 :root {
     --main-bg-color: lightblue;
+
+
+    --mail-bg-clr0: rgb(236, 236, 236);
+    --mail-bg-clr1: rgb(224, 224, 224);
 }
