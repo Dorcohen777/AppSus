@@ -1,4 +1,13 @@
 .mail-header{
     display: flex;
     gap: 25%;
+    padding:var(--mail-gap-padding);
+    align-items: center;
+}
+
+.img-gmail-container{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap:var(--mail-gap-padding);
 }
