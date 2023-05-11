@@ -1,5 +1,4 @@
  /* mail list */
  .mail-list {
-     background-color: blueviolet;
+     background-color: var(--mail-bg-clr0);
  }
-

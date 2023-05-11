@@ -1,8 +1,19 @@
 .mail-nav-side-bar {
-    background-color: chartreuse;
+    background-color: var(--mail-bg-clr1);
 }
 
 .mail-nav-sidebar-links{
     display: flex;
     flex-direction: column;
+    /* gap:var(--mail-gap-padding); */
+}
+
+.mail-nav-sidebar-links>*{
+    padding-block: var(--mail-gap-padding);
+}
+
+.btnNewMail{
+    padding-block: var(--mail-gap-padding);
+    font-size: 1.5em;
+    /* padding-block: calc(var(--mail-gap-padding) * 3); */
 }

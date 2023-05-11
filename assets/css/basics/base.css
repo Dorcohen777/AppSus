@@ -24,7 +24,7 @@ img {
 
 .btnLook,
 .btnLookIcon {
-    background-color: var(--mail-bg-clr0);
+    background-color: var(--mail-bg-clr1);
 }
 
 .btnLookIcon {
@@ -34,6 +34,6 @@ img {
 
 .btnLookIcon:hover,
 .btnLook:hover {
-    background-color: var(--mail-bg-clr1);
+    background-color: var(--mail-bg-clr2);
     cursor: pointer;
 }
