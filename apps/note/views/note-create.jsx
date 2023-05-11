@@ -25,7 +25,6 @@ export function CreateNote({ addNoteToList }) {
     }, [])
 
     function onImageClick(ev) {
-        console.log(ev)
         setShowTextComponent(false)
         setShowImageComponent(true);
 
@@ -57,15 +56,12 @@ export function CreateNote({ addNoteToList }) {
     }
 
     function onSubmitNote(ev) {
-        console.log('adding')
         ev.preventDefault()
         if (isTxt) {
             noteService.createNewNote(inputValue, "NoteTxt")
             const newNote = noteService.buildNoteText(inputValue)
             addNoteToList(newNote)
         } else if (isImg) {
-            console.log('hello img', inputValue)
-            console.log('your url is', inputValueUrl)
             noteService.createNewNote(inputValue, "NoteImg", inputValueUrl) 
             const newImg = noteService.buildNoteImage(inputValue, inputValueUrl) //
             addNoteToList(newImg)
