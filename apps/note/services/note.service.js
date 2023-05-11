@@ -13,6 +13,7 @@ export const noteService = {
     buildNoteText,
     buildNoteImage,
     buildNoteTodo,
+    buildNoteVideo,
     remove,
     get,
 }
@@ -43,19 +44,23 @@ function getDefaultFilter(searchParams = { get: () => { } }) {
     }
 }
 
-function createNewNote(value, type, newEntity, valueUrl) {
-    console.log('from service', value, type)
+function createNewNote(type, newEntity,) {
+    console.log('The new entity', newEntity)
 
     if (type === 'NoteTxt') {
-        // let newText = buildNoteText(value)
         asyncStorageService.post(NOTES_KEY, newEntity)
             .then(() => console.log('added new note'))
             .catch((err) => console.log(err))
+
     } else if (type === 'NoteImg') {
-        // let newImg = buildNoteImage(value, valueUrl)
         asyncStorageService.post(NOTES_KEY, newEntity)
             .then(() => console.log('added new image'))
             .catch((err) => console.log('failed to add new image', err))
+
+    } else if (type === "NoteVideo") {
+        asyncStorageService.post(NOTES_KEY, newEntity)
+            .then(() => console.log('added new video'))
+            .catch((err) => console.log('failed to add video', err))
     }
 }
 
@@ -77,6 +82,17 @@ function buildNoteImage(txt, imgVal) {
     return imgNote
 }
 
+function buildNoteVideo(txt, videoUrl) {
+    const videoNote = {
+        id: '',
+        type: 'NoteVideo',
+        isPinned: false,
+        title: txt,
+        url: videoUrl + 'controls=0',
+    }
+    return videoNote
+}
+
 // for handing new note when user click add button
 function buildNoteText(txtVal) {
     const textNote = {
@@ -93,7 +109,7 @@ function buildNoteText(txtVal) {
     }
     return textNote
 }
-
+// for handing new todo when user click add button
 function buildNoteTodo(listValue) {
 
     const todosNote = {
