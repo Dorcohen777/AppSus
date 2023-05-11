@@ -7,6 +7,8 @@ import { CreateNote } from '../views/note-create.jsx'
 import { EditNote } from './note-edit-note.jsx'
 import { ChangeColor } from '../cmps/note-change-color.jsx'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
+import { func } from 'prop-types'
 
 export function NoteIndex() {
 
@@ -55,6 +57,36 @@ export function NoteIndex() {
         setNoteId(noteId)
     }
 
+    function onCloneNote(noteId) {
+        setNoteId(noteId)
+        const noteToClone = notes.find(note => note.id === noteId);
+        const newNote = cloneNote(noteToClone);
+        asyncStorageService.post('notesDB', newNote)
+            .then(() => {
+                addNoteToList(newNote);
+            })
+            .catch((err) => {
+                console.log('failed to clone note', err)
+            })
+    }
+
+    // cloneing the object when user press clone btn
+    function cloneNote(note) {
+        const newNote = {
+            ...note,
+            id: utilService.makeId(),
+        };
+        return newNote;
+    }
+
+    // when user clicking to pin a note 
+    function onPinClick(noteId) {
+        const noteIndex = notes.findIndex(note => note.id === noteId);
+        const pinnedNote = notes[noteIndex];
+        notes.splice(noteIndex, 1);
+        notes.unshift(pinnedNote);
+        setNotes([...notes]);
+    }
 
 
 
@@ -68,7 +100,7 @@ export function NoteIndex() {
             {isChangeColor && <ChangeColor currNoteId={currNoteId} loadNotes={loadNotes} />}
             {isNoteEdit && <EditNote currNoteId={currNoteId} loadNotes={loadNotes} />}
             <CreateNote addNoteToList={addNoteToList} />
-            <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} onChangeColor={onChangeColor} />
+            <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} onChangeColor={onChangeColor} onCloneNote={onCloneNote} cloneNote={cloneNote} onPinClick={onPinClick} />
 
         </main>
     )
