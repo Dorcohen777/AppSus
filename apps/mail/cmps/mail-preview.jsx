@@ -7,7 +7,7 @@ const { Link } = ReactRouterDOM
 export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadState }) {
 
     useEffect(() => {
-        console.log('mail from mail preview', mail)
+        // console.log('mail from mail preview', mail)
 
     }, [])
 

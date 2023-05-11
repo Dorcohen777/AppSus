@@ -82,6 +82,7 @@ export const mailService = {
     remove,
     save,
     getEmptyNewMail,
+    changeMailState,
 }
 
 
@@ -89,18 +90,8 @@ export const mailService = {
 
 function query(filterBy = {}) {
     return asyncStorageService.query(MAIL_KEY)
-        .then(mails => {
-            // if (filterBy.name) {
-            //     console.log('mails', mails)
-            //     const regExp = new RegExp(filterBy.name, 'i')
-            //     mails = mails.filter(mail => regExp.test(mail.title))
-            // }
-
-            // if (filterBy.price) {
-            //     mails = mails.filter(mail => mail.listPrice.amount >= filterBy.price)
-            // }
-            return mails
-        })
+        .then(mails =>
+            mails.filter(mail => mail.status === filterBy.status))
 }
 
 function get(mailId) {
@@ -117,6 +108,27 @@ function save(mail) {
     } else {
         return asyncStorageService.post(MAIL_KEY, mail)
     }
+}
+
+function changeMailState(id, state = {}) {
+    console.log('state', state)
+    console.log('id', id)
+    get(id)
+        .then(prevMail => {
+            if (state.status === 'trash') state[trashedAt] = Date.now()
+            const editedMail = ({ ...prevMail, ...state })
+            console.log('editedMail', editedMail)
+            return save(editedMail)
+        })
+        .catch(err => {
+            console.log('err Could not Get mail', err)
+        })
+        .then(mail => {
+            console.log('edited mail', mail)
+        })
+        .catch(err => {
+            console.log('err Could not save mail', err)
+        })
 }
 
 
@@ -165,7 +177,6 @@ function _createMail({ subject, body, status }) {
         to: 'user@appsus.com',
         status,
         txt: 'puki', // no need to support complex text search
-        isRead: true, // (optional property, if missing: show all)
         isStared: false, // (optional property, if missing: show all)
         // lables: ['important', 'romantic'] // has any of the labels
     }

@@ -1,6 +1,9 @@
-export function MailMainSent(){
+import { MailList } from "../cmps/mail-list.jsx"
 
-    return(
-        <section>Mail Sent Here</section>
+export function MailMainSent() {
+    const filterBy = { status:'sent'}
+    
+    return (
+        <MailList filterBy={filterBy}/>
     )
 }
