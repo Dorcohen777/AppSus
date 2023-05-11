@@ -10,13 +10,19 @@
 
 .mail-table span{
     /* overflow-x: hidden; */
-    white-space: nowrap;
+    /* white-space: nowrap; */
+
+    /* max-width: 25%; */
+    /* overflow: hidden; */
+    /* max-height: 10px; */
 }
 
 .mail-table .mail-preview {
     display: flex;
     position: relative;
 }
+
+/* .mail-preview{} */
 
 .mail-table td>* {
     padding-inline: 40px;

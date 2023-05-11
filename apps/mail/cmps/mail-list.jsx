@@ -18,7 +18,8 @@ export function MailList() {
             .then(setMails)
     }
 
-    function onTrashMail(id) {
+    function onTrashMail(ev, id) {
+        ev.preventDefault()
         console.log('id TRASH', id)
         mailService.remove(id)
             .then(() => {
@@ -31,11 +32,13 @@ export function MailList() {
             })
     }
 
-    function onArchiveMail(id) {
+    function onArchiveMail(ev, id) {
+        ev.preventDefault()
         console.log('id ARCHIVE', id)
     }
 
-    function onToggleReadState(id) {
+    function onToggleReadState(ev, id) {
+        ev.preventDefault()
         console.log('id TOGGLE READ STATE', id)
     }
 
@@ -45,13 +48,13 @@ export function MailList() {
             <table className="mail-table">
                 <tbody>
                     {mails.map((mail) =>
-                            <MailPreview
-                                key={`${mail.id}`}
-                                mail={mail}
-                                onTrashMail={onTrashMail}
-                                onArchiveMail={onArchiveMail}
-                                onToggleReadState={onToggleReadState}
-                            />
+                        <MailPreview
+                            key={`${mail.id}`}
+                            mail={mail}
+                            onTrashMail={onTrashMail}
+                            onArchiveMail={onArchiveMail}
+                            onToggleReadState={onToggleReadState}
+                        />
 
                     )}
                 </tbody>

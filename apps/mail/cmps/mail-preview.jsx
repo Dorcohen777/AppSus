@@ -30,9 +30,9 @@ export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadStat
                         <section className="mail-date-buttons">
                             <article className="mail-date"><span>{renderDate(mail.sentAt)}</span></article>
                             <article className="mail-buttons"><span>
-                                <i className="btnLookIcon fa-solid fa-box-archive" onClick={() => onArchiveMail(mail.id)}></i>
-                                <i className="btnLookIcon fa-solid fa-trash" onClick={() => onTrashMail(mail.id)}></i>
-                                <i className="btnLookIcon fa-solid fa-envelope-open" onClick={() => onToggleReadState(mail.id)} ></i>
+                                <i className="btnLookIcon fa-solid fa-box-archive" onClick={(ev) => onArchiveMail(ev, mail.id)}></i>
+                                <i className="btnLookIcon fa-solid fa-trash" onClick={(ev) => onTrashMail(ev, mail.id)}></i>
+                                <i className="btnLookIcon fa-solid fa-envelope-open" onClick={(ev) => onToggleReadState(ev, mail.id)} ></i>
                             </span></article>
                         </section>
                     </section>

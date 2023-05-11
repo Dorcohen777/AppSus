@@ -18,12 +18,6 @@ import { UserMsg } from "./cmps/user-msg.jsx"
 
 
 
-{/*
-
-<NavLink className="btnLook" to="/mail/trash" >Trash</NavLink> 
-*/}
-
-
 export function App() {
     return <Router>
         <section className="app main-layout">
