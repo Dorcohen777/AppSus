@@ -17,13 +17,14 @@
 
 /*----------MAIL APP----------*/
 /* Mail App Cmps*/
+@import './apps/mail/cmps/mail-add.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-nav-side-bar.css';
 @import './apps/mail/cmps/mail-preview.css';
-@import './apps/mail/cmps/mail-add.css';
 
 /* Mail App Views */
 @import './apps/mail/views/mail-index.css';
+@import './apps/mail/views/mail-main-details.css';
 
 
 /*----------NOTE APP----------*/

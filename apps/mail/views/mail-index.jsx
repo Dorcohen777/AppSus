@@ -1,3 +1,4 @@
+import { mailService } from "../services/mail.service.js"
 import { MailAdd } from "../cmps/mail-add.jsx"
 import { MailHeader } from "../cmps/mail-header.jsx"
 import { MailNavSideBar } from "../cmps/mail-nav-side-bar.jsx"
