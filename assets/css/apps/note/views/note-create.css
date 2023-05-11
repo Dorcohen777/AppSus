@@ -1,18 +1,44 @@
-
-
-.div-create-note{
+.div-create-note {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
-    gap: 1rem;
+    justify-content: center;
 }
 
-.input-create-note{
-    
-    padding: 0.5rem 2rem;
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.btn-create{
-    margin-left: 1rem;
+.input-create-note {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #202124;
+    color: #E2E2E3;
+    margin: 20px;
+    width: 300px;
+    border: 1px solid #E2E2E3;
+}
+
+.input-create-note::placeholder {
+    color: #E2E2E3;
+}
+
+.btn-create {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4768c9;
+    color: #E2E2E3;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.btn-create:hover {
+    background-color: #123393;
+    color: #E2E2E3;
 }

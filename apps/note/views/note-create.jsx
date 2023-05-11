@@ -126,13 +126,13 @@ export function CreateNote({ addNoteToList, setEditNote }) {
         <section className='section-create'>
 
             <div className='div-create-note'>
-                <h1>Choose your note</h1>
+                <h1 className='h1-note-creator'>Choose your note</h1>
 
                 <div>
-                    <button onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>
-                    <button onClick={() => onImageClick()}><i className="fa-solid fa-image"></i></button>
-                    <button onClick={() => onTodoClick()}><i className="fa-solid fa-list"></i></button>
-                    <button onClick={() => onVideoClick()}><i className="fa-solid fa-video"></i></button>
+                    <button className='btn-create-text' onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>
+                    <button className='btn-create-image' onClick={() => onImageClick()}><i className="fa-solid fa-image"></i></button>
+                    <button className='btn-create-list' onClick={() => onTodoClick()}><i className="fa-solid fa-list"></i></button>
+                    <button className='btn-create-video' onClick={() => onVideoClick()}><i className="fa-solid fa-video"></i></button>
                 </div>
 
                 <div>
