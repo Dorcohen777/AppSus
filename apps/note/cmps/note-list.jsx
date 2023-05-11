@@ -5,9 +5,7 @@ import { NotePreview } from "./note-preview.jsx"
 
 export function NoteList({ notes, onRemoveNote, onEditNote, onChangeColor }) {
 
-
     console.log(notes)
-
 
     return (
         <ul className="ul-notes">
