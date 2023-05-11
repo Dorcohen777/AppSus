@@ -12,6 +12,7 @@ export const noteService = {
     createNewNote,
     buildNoteText,
     buildNoteImage,
+    buildNoteTodo,
     remove,
     get,
 }
@@ -52,7 +53,7 @@ function createNewNote(value, type, newEntity, valueUrl) {
             .catch((err) => console.log(err))
     } else if (type === 'NoteImg') {
         // let newImg = buildNoteImage(value, valueUrl)
-        asyncStorageService.post(NOTES_KEY, newImg)
+        asyncStorageService.post(NOTES_KEY, newEntity)
             .then(() => console.log('added new image'))
             .catch((err) => console.log('failed to add new image', err))
     }
@@ -91,6 +92,27 @@ function buildNoteText(txtVal) {
         },
     }
     return textNote
+}
+
+function buildNoteTodo(listValue) {
+
+    const todosNote = {
+        id: '',
+        type: 'NoteTodos',
+        isPinned: false,
+        info: {
+            title: 'New list',
+            todos: [
+                { txt: listValue, doneAt: null },
+                { txt: listValue, doneAt: null },
+            ]
+        },
+        style: {
+            backgroundColor: '#fff'
+        },
+    }
+    return todosNote
+
 }
 
 
@@ -179,7 +201,10 @@ function _createNoteTodos() {
                 { txt: utilService.makeLorem(3), doneAt: null },
                 { txt: utilService.makeLorem(3), doneAt: utilService.getRandomFutureTimestamp() }
             ]
-        }
+        },
+        style: {
+            backgroundColor: 'white'
+        },
     }
     return todosNote
 }
