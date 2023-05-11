@@ -38,7 +38,7 @@
 }
 
 .mail-table td:hover {
-    border: 2px solid black;
+    border-block: 2px solid black;
 }
 
 .mail-title {
