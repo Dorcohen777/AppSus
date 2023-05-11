@@ -6,40 +6,45 @@ import { MailPreview } from "./mail-preview.jsx"
 const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
 
-export function MailList() {
+export function MailList({ filterBy }) {
     const [mails, setMails] = useState([])
 
+
     useEffect(() => {
+        console.log('filterBy', filterBy)
         loadMails()
     }, [])
 
     function loadMails() {
-        mailService.query()
+        mailService.query(filterBy)
             .then(setMails)
     }
 
     function onTrashMail(ev, id) {
         ev.preventDefault()
         console.log('id TRASH', id)
-        mailService.remove(id)
-            .then(() => {
-                console.log('Success Trashing Mail')
-                const updatedMails = mails.filter(mail => id !== mail.id)
-                setMails(updatedMails)
-            })
-            .catch((err) => {
-                console.log('Error Trashing Mail', err)
-            })
+        mailService.changeMailState(id, { status: 'trash' })
+        // mailService.remove(id)
+        //     .then(() => {
+        //         console.log('Success Trashing Mail')
+        //         const updatedMails = mails.filter(mail => id !== mail.id)
+        //         setMails(updatedMails)
+        //     })
+        //     .catch((err) => {
+        //         console.log('Error Trashing Mail', err)
+        //     })
     }
 
     function onArchiveMail(ev, id) {
         ev.preventDefault()
         console.log('id ARCHIVE', id)
+        mailService.changeMailState(id, { status: 'archive' })
     }
 
     function onToggleReadState(ev, id) {
         ev.preventDefault()
         console.log('id TOGGLE READ STATE', id)
+        mailService.changeMailState(id, { status: 'read' })
     }
 
     return (

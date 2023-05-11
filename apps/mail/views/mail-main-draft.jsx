@@ -1,6 +1,9 @@
-export function MailMainDraft(){
+import { MailList } from "../cmps/mail-list.jsx"
 
+export function MailMainDraft() {
+    const filterBy = { status: 'draft' }
+    
     return (
-        <section>Mail Draft Here</section>
+        <MailList filterBy={filterBy} />
     )
 }

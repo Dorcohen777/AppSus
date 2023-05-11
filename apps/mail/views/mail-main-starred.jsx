@@ -1,6 +1,9 @@
-export function MailMainStarred(){
+import { MailList } from "../cmps/mail-list.jsx"
 
-    return(
-        <section>Starred Here</section>
-        )
+export function MailMainStarred() {
+    const filterBy = { status:'starred'}
+
+    return (
+        <MailList filterBy={filterBy}/>
+    )
 }
