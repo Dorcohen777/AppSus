@@ -10,7 +10,7 @@ export function NotePreview({ note }) {
                 </div>
             )}
             {note.type === 'NoteTodos' && (
-                <div className="note-todos">
+                <div className="note-todos" style={{ backgroundColor: note.style.backgroundColor }}>
                     <h2>{note.info.title}</h2>
                     <ul className="ul-todos" >
                         {note.info.todos.map((todo, idx) => {
