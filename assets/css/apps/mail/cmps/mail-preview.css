@@ -8,14 +8,14 @@
     width: 100%;
 }
 
-.mail-table span{
+/* .mail-table span{ */
     /* overflow-x: hidden; */
     /* white-space: nowrap; */
 
     /* max-width: 25%; */
     /* overflow: hidden; */
     /* max-height: 10px; */
-}
+/* } */
 
 .mail-table .mail-preview {
     display: flex;
