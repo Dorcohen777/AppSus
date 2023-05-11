@@ -1,3 +1,8 @@
 .mail-nav-side-bar {
     background-color: chartreuse;
 }
+
+.mail-nav-sidebar-links{
+    display: flex;
+    flex-direction: column;
+}

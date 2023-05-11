@@ -1,18 +1,19 @@
 import { MailAdd } from "../cmps/mail-add.jsx"
 import { MailHeader } from "../cmps/mail-header.jsx"
-import { MailMain } from "../cmps/mail-main.jsx"
+import { MailNavSideBar } from "../cmps/mail-nav-side-bar.jsx"
 
 const { useState, useEffect } = React
-const { useNavigate } = ReactRouterDOM
+const { useNavigate, Outlet } = ReactRouterDOM
+
 
 export function MailIndex() {
     //BETTER TO KEEP THE USE STATE IN THE LOWEST DESCENDANT POSSIBLE
     const [isMailAdd, setIsMailAdd] = useState(false)
 
     const navigate = useNavigate()
-    useEffect(()=>{
+    useEffect(() => {
         navigate('/mail/inbox')
-    },[])
+    }, [])
 
     useEffect(() => {
     }, [isMailAdd])
@@ -32,7 +33,10 @@ export function MailIndex() {
         <section className="mail-index">
             <MailHeader />
 
-            <MailMain onAddMail={onAddMail} />
+            <section className="mail-main">
+                <MailNavSideBar onAddMail={onAddMail} />
+                <Outlet />
+            </section>
 
             {isMailAdd && <MailAdd onCloseAddMail={onCloseAddMail} />}
         </section>
