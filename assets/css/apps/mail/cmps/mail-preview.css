@@ -4,17 +4,25 @@
     border-collapse: collapse;
 }
 
+.goldStar {
+    color: gold;
+}
+
+.goldStar:hover {
+    color: inherit;
+}
+
 .mail-table {
     width: 100%;
 }
 
 /* .mail-table span{ */
-    /* overflow-x: hidden; */
-    /* white-space: nowrap; */
+/* overflow-x: hidden; */
+/* white-space: nowrap; */
 
-    /* max-width: 25%; */
-    /* overflow: hidden; */
-    /* max-height: 10px; */
+/* max-width: 25%; */
+/* overflow: hidden; */
+/* max-height: 10px; */
 /* } */
 
 .mail-table .mail-preview {
@@ -29,7 +37,7 @@
     padding-block: 5px;
 }
 
-.mail-table td:hover{
+.mail-table td:hover {
     border: 2px solid black;
 }
 
@@ -41,19 +49,19 @@
     flex-grow: 9;
 }
 
-.mail-date-buttons{
+.mail-date-buttons {
     flex-grow: 1;
     width: 10%;
 }
 
-.mail-buttons{
+.mail-buttons {
     display: none;
 }
 
-td:hover .mail-buttons{
+td:hover .mail-buttons {
     display: inline-block;
 }
 
-td:hover .mail-date{
+td:hover .mail-date {
     display: none;
 }

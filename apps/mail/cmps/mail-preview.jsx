@@ -4,12 +4,12 @@ import { mailService } from "../services/mail.service.js"
 const { useEffect } = React
 const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadState }) {
+export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadState, onStarMail }) {
 
     useEffect(() => {
         // console.log('mail from mail preview', mail)
 
-    }, [])
+    }, [mail])
 
 
     function renderDate(sentAt) {
@@ -25,6 +25,9 @@ export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadStat
             <td>
                 <Link to={`/mail/details/${mail.id}`}>
                     <section className="mail-preview">
+                        <section>
+                            <i className={`btnLookIcon ${mail.status === 'starred' && 'goldStar'} fa-solid fa-star`} onClick={(ev) => onStarMail(ev, mail.id)}></i>
+                        </section>
                         <section className="mail-title"><span>{mail.subject}</span></section>
                         <section className="mail-content"><span>{mail.body}</span></section>
                         <section className="mail-date-buttons">

@@ -22,12 +22,12 @@ img {
     object-fit: cover;
 }
 
-.btnLook,
-.btnLookIcon {
+.btnLook{
     background-color: var(--mail-bg-clr1);
 }
 
 .btnLookIcon {
+    background-color: var(--mail-bg-clr0);
     padding-inline: 5px;
     margin-inline: 5px;
 }
