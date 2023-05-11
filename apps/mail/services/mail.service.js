@@ -22,19 +22,19 @@ const demoMails = [
         subject: 'You win!',
         body: 'You won at our yearly raffle for a Samsang X51SUPER, to recieve gift please reply to this mail with your credit card details',
         txt: '',
-        status: 'trash',
+        status: 'inbox',
     },
     {
         subject: 'Monthly Password Change',
         body: 'To continue using our services, we require you to periodically change your password every 1st day of the month, at 00:00 UTC+2',
         txt: '',
-        status: 'trash',
+        status: 'inbox',
     },
     {
         subject: 'Facebook',
         body: 'Your email reset confirmation code has been sent to the phone number you registered on our database. This code will be valid for 4 hours.',
         txt: '',
-        status: 'draft',
+        status: 'inbox',
     },
     {
         subject: 'Instagram',
@@ -64,7 +64,7 @@ const demoMails = [
         subject: 'YouTube Music Team',
         body: 'Updates to artist channels & related subscriptions!',
         txt: '',
-        status: 'inbox',
+        status: 'sent',
     },
     {
         subject: 'Twitter',
