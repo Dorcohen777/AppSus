@@ -2,6 +2,7 @@ const { useEffect, useState, useRef } = React
 
 import { TextEditor } from './text-editor.jsx'
 import { ImageEditor } from './image-editor.jsx'
+import { VideoEditor } from './video-editor.jsx'
 
 import { noteService } from '../services/note.service.js'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
@@ -15,6 +16,8 @@ export function EditNote({ currNoteId, loadNotes }) {
     const [newTxt, setNewTxt] = useState('')
     const [newUrl, setNewUrl] = useState('')
 
+    const [newVideoUrl, setNewVideoUrl] = useState('')
+    const [newVideoTitle, setVideoTitle] = useState('')
 
     useEffect(() => {
         findNote()
@@ -44,6 +47,23 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
         }
 
+        // start of video note editing
+        if (target.name === 'videoUrl') {
+            setNewVideoUrl(target.value)
+            setCurrNote(prevNote => ({
+                ...prevNote,
+                url: noteService.getYoutubeVideoId(target.value),
+            }))
+        } else if (target.name = 'videoTitle') {
+            setVideoTitle(target.value)
+            setCurrNote(prevNote => ({
+                ...prevNote,
+                title: target.value
+            }))
+        }
+        // end of video note editing
+
+        // start of image note editing
         if (target.name === 'url') {
             setNewUrl(target.value)
             if (noteType === 'NoteImg') {
@@ -57,13 +77,11 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
         }
 
-
     }
 
     function onEditSubmit(ev) {
         ev.preventDefault()
         onDoneEdit()
-
     }
 
     function onDoneEdit() {
@@ -82,6 +100,7 @@ export function EditNote({ currNoteId, loadNotes }) {
                 console.log('from findNote', note)
                 setCurrNote(note)
                 setNoteType(note.type)
+                console.log('noteType is:', noteType)
             })
             .catch(err => console.log(err))
     }
@@ -93,6 +112,9 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
             {noteType === 'NoteImg' &&
                 <ImageEditor onEditSubmit={onEditSubmit} handleEditChange={handleEditChange} currNote={currNote} />
+            }
+            {noteType === 'NoteVideo' &&
+                <VideoEditor onEditSubmit={onEditSubmit} handleEditChange={handleEditChange} currNote={currNote} />
             }
         </div>
     )
