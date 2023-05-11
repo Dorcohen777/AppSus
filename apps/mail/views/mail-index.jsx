@@ -18,7 +18,8 @@ export function MailIndex() {
         console.log('on add mail')
         setIsMailAdd(true)
     }
-    function onCloseAddMail(){
+    function onCloseAddMail(ev){
+        // ev.preventDefault()
         console.log('on CloseMail')
         setIsMailAdd(false)
     }

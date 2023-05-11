@@ -52,7 +52,7 @@ function save(mail) {
 
 function getEmptyNewMail(){
     return{
-        id: utilService.makeId(),
+        id:'',
         subject: '',
         body: '',
         isRead: false,

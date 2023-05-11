@@ -1,15 +1,39 @@
+import { utilService } from "../../../services/util.service.js"
 import { mailService } from "../services/mail.service.js"
 
-const { useState } = React
+const { useState, useEffect, useRef } = React
 
 export function MailAdd({ onCloseAddMail }) {
 
     const [newMail, setNewMail] = useState(mailService.getEmptyNewMail())
+    const isSentRef = useRef(false)
+
+    useEffect(() => {
+        if (newMail.sentAt) sendMail()
+
+    }, [newMail])
 
     function handleChange({ target }) {
         const field = target.name
         const value = target.type === 'number' ? (+target.value || '') : target.value
-        setBookToEdit(prevBook => ({ ...prevBook, [field]: value }))
+        console.log('[field]: value', [field], value)
+        setNewMail(prevBook => ({ ...prevBook, [field]: value }))
+    }
+
+    function onClickSend(ev) {
+        ev.preventDefault()
+        setNewMail(prevBook => ({ ...prevBook, sentAt: Date.now() }))
+    }
+
+    function sendMail() {
+        console.log('newMail', newMail)
+        mailService.save(newMail)
+            .then('Saved Succesfully')
+            .catch((err) => {
+                console.log('err Failed Saving', err)
+            })
+            .finally(() => onCloseAddMail())
+
     }
 
     const { to, subject, body } = newMail
@@ -21,17 +45,17 @@ export function MailAdd({ onCloseAddMail }) {
             </section>
             <section>
                 <label>To:</label>
-                <input></input>
+                <input type="text" name="to" onChange={handleChange}></input>
             </section>
             <section>
                 <label>Subject:</label>
-                <input></input>
+                <input type="text" name="subject" onChange={handleChange}></input>
             </section>
             <section>
                 <label>Content:</label>
-                <input></input>
+                <input type="text" name="body" onChange={handleChange}></input>
             </section>
-            <button>Send</button>
+            <button onClick={onClickSend}>Send</button>
         </section>
     )
 }
