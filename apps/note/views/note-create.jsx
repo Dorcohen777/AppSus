@@ -1,15 +1,15 @@
-const { useEffect, useState, useRef } = React
-const { Link, useSearchParams } = ReactRouterDOM
+const { useEffect, useState } = React
 
-// import { NoteList } from '../cmps/note-list.jsx'
+
+
 import { noteService } from '../services/note.service.js'
+
 import { NewImageNote } from '../cmps/note-create-image.jsx'
 import { NewTextNote } from '../cmps/note-create-text.jsx'
 import { NewTodoNote } from '../cmps/note-create.todo.jsx'
-
+import { NewVideoNote } from '../cmps/note-create.video.jsx'
 
 export function CreateNote({ addNoteToList, setEditNote }) {
-
 
     const [inputValue, setInputValue] = useState('')
     const [inputValueUrl, setInputValueUrl] = useState('')
@@ -83,11 +83,18 @@ export function CreateNote({ addNoteToList, setEditNote }) {
         if (target.name === 'txt') {
             setInputValue(target.value)
         }
-
         if (target.name === 'url') {
-
             setInputValueUrl(target.value)
         }
+
+        if (target.name === 'videoUrl') {
+            setInputValueUrl(target.value)
+        }
+
+        if (target.name === 'videoTitle') {
+            setInputValue(target.value)
+        }
+
         console.log(inputValue)
     }
 
@@ -95,18 +102,23 @@ export function CreateNote({ addNoteToList, setEditNote }) {
         ev.preventDefault()
         if (isTxt) {
             const newNote = noteService.buildNoteText(inputValue)
-            noteService.createNewNote(inputValue, "NoteTxt", newNote)
+            noteService.createNewNote("NoteTxt", newNote)
             addNoteToList(newNote)
+
         } else if (isImg) {
             const newImg = noteService.buildNoteImage(inputValue, inputValueUrl)
-            noteService.createNewNote(inputValue, "NoteImg", newImg, inputValueUrl)
+            noteService.createNewNote( "NoteImg", newImg, inputValueUrl)
             addNoteToList(newImg)
-        } else if (isTodos) {
-            const newTodo = noteService.buildNoteTodo(todos);
-            noteService.createNewNote(inputValue, "NoteTodo", newTodo);
-            addNoteToList(newTodo);
-        } else if (isVideo) {
 
+        } else if (isTodos) {
+            const newTodo = noteService.buildNoteTodo(todos)
+            noteService.createNewNote( "NoteTodo", newTodo)
+            addNoteToList(newTodo)
+
+        } else if (isVideo) {
+            const newVideo = noteService.buildNoteVideo(inputValue, inputValueUrl)
+            noteService.createNewNote("NoteVideo", newVideo,)
+            addNoteToList(newVideo)
         }
     }
 
@@ -127,7 +139,7 @@ export function CreateNote({ addNoteToList, setEditNote }) {
                     {showTextComponent && <NewTextNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
                     {showImageComponent && <NewImageNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
                     {showTodoComponent && <NewTodoNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
-                    {showVideoComponent && <NewVideoNote />}
+                    {showVideoComponent && <NewVideoNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
                 </div>
 
             </div>

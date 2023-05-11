@@ -2,6 +2,7 @@ export function NotePreview({ note }) {
 
 
     return (
+
         <article className="note-item">
             {note.type === 'NoteTxt' && (
                 <div className="note-txt" style={{ backgroundColor: note.style.backgroundColor }}>
@@ -27,6 +28,19 @@ export function NotePreview({ note }) {
                 <div className="note-img">
                     <img src={note.info.url} />
                     <h2>{note.info.title}</h2>
+                </div>
+            )}
+            {note.type === 'NoteVideo' && (
+                <div className="note-video">
+                    <h2>{note.title}</h2>
+                    <iframe
+                        width="310"
+                        height="315"
+                        src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                    >
+                    </iframe>
+
+
                 </div>
             )}
 
