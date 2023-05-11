@@ -8,7 +8,7 @@ import { EditNote } from './note-edit-note.jsx'
 import { ChangeColor } from '../cmps/note-change-color.jsx'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
 import { utilService } from '../../../services/util.service.js'
-import { func } from 'prop-types'
+// import { func } from 'prop-types'
 
 export function NoteIndex() {
 
