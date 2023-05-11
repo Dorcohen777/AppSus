@@ -1,3 +1,6 @@
+const { NavLink } = ReactRouterDOM
+
+
 export function MailNavSideBar({ onAddMail }) {
 
     // function onAddMail() {
@@ -12,7 +15,8 @@ export function MailNavSideBar({ onAddMail }) {
             <h2>Mail Side Nav Bar Here</h2>
             <section className="btnLook" onClick={onAddMail}>New Mail</section>
             <section>
-                <article>Inbox</article>
+                {/* <article>Inbox</article> */}
+                <NavLink to="/mail/inbox" >Inbox</NavLink>
                 <article>Starred</article>
                 <article>Sent</article>
                 <article>Draft</article>

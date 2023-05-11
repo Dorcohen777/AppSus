@@ -13,7 +13,7 @@
     white-space: nowrap;
 }
 
-.mail-table td {
+.mail-table .mail-preview {
     display: flex;
     position: relative;
 }

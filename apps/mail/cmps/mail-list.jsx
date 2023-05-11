@@ -4,6 +4,7 @@ import { MailPreview } from "./mail-preview.jsx"
 
 
 const { useState, useEffect } = React
+const { Link } = ReactRouterDOM
 
 export function MailList() {
     const [mails, setMails] = useState([])
@@ -44,13 +45,15 @@ export function MailList() {
             <table className="mail-table">
                 <tbody>
                     {mails.map((mail) =>
-                        <MailPreview
-                            key={`${mail.id}`}
-                            mail={mail}
-                            onTrashMail={onTrashMail}
-                            onArchiveMail={onArchiveMail}
-                            onToggleReadState={onToggleReadState}
-                        />)}
+                            <MailPreview
+                                key={`${mail.id}`}
+                                mail={mail}
+                                onTrashMail={onTrashMail}
+                                onArchiveMail={onArchiveMail}
+                                onToggleReadState={onToggleReadState}
+                            />
+
+                    )}
                 </tbody>
             </table>
         </section>

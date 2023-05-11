@@ -1,16 +1,15 @@
 import { utilService } from "../../../services/util.service.js"
 import { mailService } from "../services/mail.service.js"
 
-const { useState, useEffect, useRef } = React
+const { useState, useEffect } = React
 
 export function MailAdd({ onCloseAddMail }) {
 
     const [newMail, setNewMail] = useState(mailService.getEmptyNewMail())
-    const isSentRef = useRef(false)
+
 
     useEffect(() => {
         if (newMail.sentAt) sendMail()
-
     }, [newMail])
 
     function handleChange({ target }) {
@@ -28,7 +27,7 @@ export function MailAdd({ onCloseAddMail }) {
     function sendMail() {
         console.log('newMail', newMail)
         mailService.save(newMail)
-            .then('Saved Succesfully')
+            .then('Saved Successfully')
             .catch((err) => {
                 console.log('err Failed Saving', err)
             })
