@@ -115,7 +115,9 @@ function changeMailState(id, state = {}) {
     console.log('id', id)
     get(id)
         .then(prevMail => {
+            if (state.status === 'trash') state[trashedAt] = Date.now()
             const editedMail = ({ ...prevMail, ...state })
+            console.log('editedMail', editedMail)
             return save(editedMail)
         })
         .catch(err => {

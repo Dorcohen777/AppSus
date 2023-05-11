@@ -23,16 +23,18 @@ export function MailList({ filterBy }) {
     function onTrashMail(ev, id) {
         ev.preventDefault()
         console.log('id TRASH', id)
-        mailService.changeMailState(id, { status: 'trash' })
-        // mailService.remove(id)
-        //     .then(() => {
-        //         console.log('Success Trashing Mail')
-        //         const updatedMails = mails.filter(mail => id !== mail.id)
-        //         setMails(updatedMails)
-        //     })
-        //     .catch((err) => {
-        //         console.log('Error Trashing Mail', err)
-        //     })
+        if (filterBy.status !== 'trash') mailService.changeMailState(id, { status: 'trash' })
+        else {
+            mailService.remove(id)
+                .then(() => {
+                    console.log('Success Trashing Mail')
+                    const updatedMails = mails.filter(mail => id !== mail.id)
+                    setMails(updatedMails)
+                })
+                .catch((err) => {
+                    console.log('Error Trashing Mail', err)
+                })
+        }
     }
 
     function onArchiveMail(ev, id) {
