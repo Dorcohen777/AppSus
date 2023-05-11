@@ -1,0 +1,36 @@
+.h1-note-creator {
+    font-size: 32px;
+    margin: 1rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-create-text,
+.btn-create-image,
+.btn-create-list,
+.btn-create-video {
+    background-color: #202124;
+    color: #E2E2E3;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-create-text:hover,
+.btn-create-image:hover,
+.btn-create-list:hover,
+.btn-create-video:hover {
+    background-color: #4A4A4D;
+    color: #E2E2E3;
+}
+
+.btn-create-text {
+    border-radius: 20px 0 0 20px;
+}
+
+.btn-create-video {
+    border-radius: 0 20px 20px 0;
+}

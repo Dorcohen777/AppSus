@@ -32,14 +32,14 @@ export function NotePreview({ note }) {
             )}
             {note.type === 'NoteVideo' && (
                 <div className="note-video">
-                    <h2>{note.title}</h2>
+
                     <iframe
                         width="310"
                         height="315"
-                        src="https://www.youtube.com/embed/tgbNymZ7vqY"
+                        src={`https://www.youtube.com/embed/${note.url}`}
                     >
                     </iframe>
-
+                    <h2>{note.title}</h2>
 
                 </div>
             )}
