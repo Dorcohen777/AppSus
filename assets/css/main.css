@@ -18,6 +18,7 @@
 /*----------MAIL APP----------*/
 /* Mail App Cmps*/
 @import './apps/mail/cmps/mail-add.css';
+@import './apps/mail/cmps/mail-header.css';
 @import './apps/mail/cmps/mail-list.css';
 @import './apps/mail/cmps/mail-nav-side-bar.css';
 @import './apps/mail/cmps/mail-preview.css';

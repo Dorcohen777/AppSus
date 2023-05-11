@@ -87,7 +87,6 @@ export const mailService = {
 
 
 
-
 function query(filterBy = {}) {
     return asyncStorageService.query(MAIL_KEY)
         .then(mails =>
@@ -110,27 +109,20 @@ function save(mail) {
     }
 }
 
+
 function changeMailState(id, state = {}) {
     console.log('state', state)
     console.log('id', id)
     return get(id)
         .then(prevMail => {
-            if (state.status === 'trash') state[trashedAt] = Date.now()
-            const editedMail = ({ ...prevMail, ...state })
+            const editedMail = ({ ...prevMail, ...state, removedAt: (state.status === 'trash') ? Date.now() : null })
             console.log('editedMail', editedMail)
             return save(editedMail)
         })
         .catch(err => {
             console.log('err Could not Get mail', err)
         })
-        // .then(mail => {
-        //     console.log('edited mail', mail)
-        // })
-        // .catch(err => {
-        //     console.log('err Could not save mail', err)
-        // })
 }
-
 
 function getEmptyNewMail() {
     return {
