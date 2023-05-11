@@ -1,10 +1,12 @@
 const { useEffect, useState, useRef } = React
 const { Link, useSearchParams } = ReactRouterDOM
 
-import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
+import { noteService } from '../services/note.service.js'
 import { NewImageNote } from '../cmps/note-create-image.jsx'
 import { NewTextNote } from '../cmps/note-create-text.jsx'
+import { NewTodoNote } from '../cmps/note-create.todo.jsx'
+
 
 export function CreateNote({ addNoteToList, setEditNote }) {
 
@@ -18,13 +20,14 @@ export function CreateNote({ addNoteToList, setEditNote }) {
 
     const [showImageComponent, setShowImageComponent] = useState(false);
     const [showTextComponent, setShowTextComponent] = useState(false);
+    const [showTodoComponent, setShowTodoComponent] = useState(false);
 
     useEffect(() => {
         setIsTxt(true)
 
     }, [])
 
-    function onImageClick(ev) {
+    function onImageClick() {
         setShowTextComponent(false)
         setShowImageComponent(true);
 
@@ -41,6 +44,16 @@ export function CreateNote({ addNoteToList, setEditNote }) {
 
         setShowTextComponent(true)
         setShowImageComponent(false);
+    }
+
+    function onTodoClick() {
+        setIsTodos(true)
+        setIsImg(false)
+        setIsTxt(false)
+
+        setShowTodoComponent(true)
+        setShowImageComponent(false)
+        setShowImageComponent(false)
     }
 
     function handleChange({ target }) {
@@ -62,9 +75,17 @@ export function CreateNote({ addNoteToList, setEditNote }) {
             noteService.createNewNote(inputValue, "NoteTxt", newNote)
             addNoteToList(newNote)
         } else if (isImg) {
-            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl) 
+            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl)
             noteService.createNewNote(inputValue, "NoteImg", newImg, inputValueUrl)
             addNoteToList(newImg)
+        } else if (isTodos) {
+            const todos = inputValue.split(",").map((value) => ({
+                text: value.trim(),
+                isDone: false
+            }));
+            const newTodo = noteService.buildNoteTodo(todos);
+            noteService.createNewNote(inputValue, "NoteTodo", newTodo);
+            addNoteToList(newTodo);
         }
     }
 
@@ -76,13 +97,14 @@ export function CreateNote({ addNoteToList, setEditNote }) {
                 <div>
                     <button onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>
                     <button onClick={() => onImageClick()}><i className="fa-solid fa-image"></i></button>
+                    <button onClick={() => onTodoClick()}><i className="fa-solid fa-list"></i></button>
                     <button><i className="fa-solid fa-video"></i></button>
-                    <button><i className="fa-solid fa-list"></i></button>
                 </div>
 
                 <div>
                     {showTextComponent && <NewTextNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
                     {showImageComponent && <NewImageNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
+                    {showTodoComponent && <NewTodoNote onSubmitNote={onSubmitNote} handleChange={handleChange} />}
                 </div>
 
             </div>
