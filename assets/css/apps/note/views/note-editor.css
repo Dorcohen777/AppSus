@@ -1,70 +1,80 @@
 .editor-panel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 30%;
-    z-index: 5;
-    width: 300px;
-    background-color: rgb(36, 22, 58);
-    color: white;
-    border-radius: 1rem;
-    padding: 1rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-    font-family: sans-serif;
-  }
-  
-  .editor-form {
-    display: grid;
-    gap: 1rem;
-    justify-items: center;
-    width: 100%;
-  }
-  
-  .editor-form label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  .editor-form input[type="text"],
-  .editor-form select {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    width: 100%;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .editor-form input[type="text"]:hover,
-  .editor-form input[type="text"]:focus,
-  .editor-form select:hover,
-  .editor-form select:focus {
-    background-color: rgba(255, 255, 255, 0.2);
-    outline: none;
-  }
-  
-  .editor-form button, .btn-exit {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: rgb(191, 179, 210);
-    border: none;
-    color: rgb(36, 22, 58);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .editor-form button:hover,
-  .editor-form button:focus {
-    background-color: rgb(145, 126, 159);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 40.5%;
+  top: 10%;
+  z-index: 5;
+  width: 300px;
+  background-color: #202124;
+  color: #E2E2E3;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+}
 
-  .btn-exit{
-    position: absolute;
-    left:90%;
-    top:0;
-  }
-  
+.editor-form {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  width: 100%;
+}
+
+.editor-form label {
+  display: block;
+  font-weight: bold;
+}
+
+.editor-form input[type="text"],
+input[type="url"],
+.editor-form select {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #202124;
+  color: #E2E2E3;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.editor-form input[type="text"]:hover,
+.editor-form input[type="text"]:focus,
+.editor-form input[type="url"]:hover,
+.editor-form input[type="url"]:focus,
+.editor-form select:hover,
+.editor-form select:focus {
+  background-color: #2f3b5f;
+  outline: none;
+}
+
+.editor-form button,
+.btn-exit {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #E2E2E3;
+  border: none;
+  color: #202124;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.editor-form button:hover,
+.editor-form button:focus {
+  background-color: #2f3b5f;
+  color: #E2E2E3;
+}
+
+.btn-exit {
+  position: absolute;
+  left: 90%;
+  top: 0;
+}
+
+.btn-exit:hover {
+  background-color: #2f3b5f;
+  color: #E2E2E3;
+}
