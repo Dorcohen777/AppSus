@@ -203,7 +203,7 @@ function _createNoteTodos() {
             ]
         },
         style: {
-            backgroundColor: 'white'
+            backgroundColor: '#fff'
         },
     }
     return todosNote

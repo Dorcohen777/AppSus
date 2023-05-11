@@ -79,10 +79,6 @@ export function CreateNote({ addNoteToList, setEditNote }) {
             noteService.createNewNote(inputValue, "NoteImg", newImg, inputValueUrl)
             addNoteToList(newImg)
         } else if (isTodos) {
-            const todos = inputValue.split(",").map((value) => ({
-                text: value.trim(),
-                isDone: false
-            }));
             const newTodo = noteService.buildNoteTodo(todos);
             noteService.createNewNote(inputValue, "NoteTodo", newTodo);
             addNoteToList(newTodo);

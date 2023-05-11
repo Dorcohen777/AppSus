@@ -8,6 +8,7 @@ export function NewTodoNote({ onSubmitNote, handleChange }) {
                 className="input-create-note"
                 name="txt"
             />
+            <button>+</button>
             <button className="btn-create">Add</button>
         </form>
     );
