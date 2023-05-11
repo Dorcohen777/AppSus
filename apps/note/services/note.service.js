@@ -42,16 +42,16 @@ function getDefaultFilter(searchParams = { get: () => { } }) {
     }
 }
 
-function createNewNote(value, type, valueUrl) {
+function createNewNote(value, type, newEntity, valueUrl) {
     console.log('from service', value, type)
 
     if (type === 'NoteTxt') {
-        let newText = buildNoteText(value)
-        asyncStorageService.post(NOTES_KEY, newText)
+        // let newText = buildNoteText(value)
+        asyncStorageService.post(NOTES_KEY, newEntity)
             .then(() => console.log('added new note'))
             .catch((err) => console.log(err))
     } else if (type === 'NoteImg') {
-        let newImg = buildNoteImage(value, valueUrl)
+        // let newImg = buildNoteImage(value, valueUrl)
         asyncStorageService.post(NOTES_KEY, newImg)
             .then(() => console.log('added new image'))
             .catch((err) => console.log('failed to add new image', err))
@@ -62,7 +62,7 @@ function createNewNote(value, type, valueUrl) {
 // for handing new image when user click add button
 function buildNoteImage(txt, imgVal) {
     const imgNote = {
-        id: utilService.makeId(),
+        id: '',
         type: 'NoteImg',
         isPinned: false,
         info: {
@@ -79,7 +79,7 @@ function buildNoteImage(txt, imgVal) {
 // for handing new note when user click add button
 function buildNoteText(txtVal) {
     const textNote = {
-        id: utilService.makeId(),
+        id: '',
         createdAt: utilService.getCurrentDate(),
         type: 'NoteTxt',
         isPinned: false,

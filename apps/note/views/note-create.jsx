@@ -6,7 +6,7 @@ import { NoteList } from '../cmps/note-list.jsx'
 import { NewImageNote } from '../cmps/note-create-image.jsx'
 import { NewTextNote } from '../cmps/note-create-text.jsx'
 
-export function CreateNote({ addNoteToList }) {
+export function CreateNote({ addNoteToList, setEditNote }) {
 
 
     const [inputValue, setInputValue] = useState('')
@@ -58,12 +58,12 @@ export function CreateNote({ addNoteToList }) {
     function onSubmitNote(ev) {
         ev.preventDefault()
         if (isTxt) {
-            noteService.createNewNote(inputValue, "NoteTxt")
             const newNote = noteService.buildNoteText(inputValue)
+            noteService.createNewNote(inputValue, "NoteTxt", newNote)
             addNoteToList(newNote)
         } else if (isImg) {
-            noteService.createNewNote(inputValue, "NoteImg", inputValueUrl) 
-            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl) //
+            const newImg = noteService.buildNoteImage(inputValue, inputValueUrl) 
+            noteService.createNewNote(inputValue, "NoteImg", newImg, inputValueUrl)
             addNoteToList(newImg)
         }
     }

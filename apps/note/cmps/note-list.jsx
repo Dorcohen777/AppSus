@@ -1,4 +1,3 @@
-const { Link } = ReactRouterDOM
 
 import { NotePreview } from "./note-preview.jsx"
 

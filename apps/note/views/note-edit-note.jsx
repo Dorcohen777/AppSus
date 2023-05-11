@@ -22,7 +22,7 @@ export function EditNote({ currNoteId, loadNotes }) {
     }, [])
 
     function handleEditChange({ target }) {
-        
+
         if (target.name === 'txt') {
             setNewTxt(target.value)
             if (noteType === 'NoteTxt') {
@@ -57,15 +57,13 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
         }
 
-        
+
     }
-
-
-
 
     function onEditSubmit(ev) {
         ev.preventDefault()
         onDoneEdit()
+
     }
 
     function onDoneEdit() {
@@ -75,6 +73,7 @@ export function EditNote({ currNoteId, loadNotes }) {
                 loadNotes()
             })
             .catch((err) => console.log('failed to edit note', err))
+
     }
 
     function findNote() {
@@ -89,7 +88,6 @@ export function EditNote({ currNoteId, loadNotes }) {
 
     return (
         <div>
-            <h1>edit note here</h1>
             {noteType === 'NoteTxt' &&
                 <TextEditor onEditSubmit={onEditSubmit} handleEditChange={handleEditChange} currNote={currNote} />
             }

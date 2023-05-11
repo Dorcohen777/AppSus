@@ -49,8 +49,10 @@ export function NoteIndex() {
         <main>
             <h1>Hello from note app</h1>
             {isNoteEdit && <EditNote currNoteId={currNoteId} loadNotes={loadNotes} />}
-            <CreateNote addNoteToList={addNoteToList} />
+            <CreateNote addNoteToList={addNoteToList}  />
             <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} />
+            
+
         </main>
     )
 }
