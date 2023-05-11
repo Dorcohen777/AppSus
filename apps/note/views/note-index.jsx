@@ -4,7 +4,7 @@ const { Link, useSearchParams } = ReactRouterDOM
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { CreateNote } from '../views/note-create.jsx'
-import { EditNote } from '../cmps/note-edit-note.jsx'
+import { EditNote } from './note-edit-note.jsx'
 
 export function NoteIndex() {
 
@@ -27,6 +27,7 @@ export function NoteIndex() {
     }
 
     function onRemoveNote(noteId) {
+        loadNotes()
         noteService.remove(noteId).then(() => {
             const updateList = notes.filter(note => note.id !== noteId)
             setNotes(updateList)
@@ -47,7 +48,7 @@ export function NoteIndex() {
     return (
         <main>
             <h1>Hello from note app</h1>
-            {isNoteEdit && <EditNote currNoteId={currNoteId} addNoteToList={addNoteToList} />}
+            {isNoteEdit && <EditNote currNoteId={currNoteId} loadNotes={loadNotes} />}
             <CreateNote addNoteToList={addNoteToList} />
             <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} />
         </main>
