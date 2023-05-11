@@ -9,46 +9,68 @@ const demoMails = [
     {
         subject: 'Hello',
         body: 'Missed you for a while, how are you doing these days? hope I can see you again sometimes!',
+        txt: '',
+        status: 'sent',
     },
     {
         subject: 'Congratulations! You won 500$',
         body: 'You won 500$!!! click here to redeem',
+        txt: '',
+        status: 'inbox',
     },
     {
         subject: 'You win!',
         body: 'You won at our yearly raffle for a Samsang X51SUPER, to recieve gift please reply to this mail with your credit card details',
+        txt: '',
+        status: 'trash',
     },
     {
         subject: 'Monthly Password Change',
         body: 'To continue using our services, we require you to periodically change your password every 1st day of the month, at 00:00 UTC+2',
+        txt: '',
+        status: 'trash',
     },
     {
         subject: 'Facebook',
         body: 'Your email reset confirmation code has been sent to the phone number you registered on our database. This code will be valid for 4 hours.',
+        txt: '',
+        status: 'draft',
     },
     {
         subject: 'Instagram',
         body: 'Your have 13 friends in common among you friends, whom you have not befriended yet!!! click here for more info',
+        txt: '',
+        status: 'inbox',
     },
     {
         subject: 'YouTube',
         body: 'You can now choose your YouTube handle! As a reminder, in most cases, if you already have a personalized URL for your channel, we\'ve reserved this for you as your handle. If you\'re happy with that handle then you\'re all set. If you want a different handle from the one that we reserved, you can change it.',
+        txt: '',
+        status: 'inbox',
     },
     {
         subject: 'Duolingo',
         body: 'Get back into French today with a quick lesson!  Let\'s learn Japanese today! Even one lesson makes a big difference.',
+        txt: '',
+        status: 'inbox',
     },
     {
         subject: 'Call of Duty',
         body: 'Call of Duty Account Verification Code! An update to your account was requested at 2023-01-21 11:59. To ensure you made this request, we need to verify your email before making any changes. ',
+        txt: '',
+        status: 'draft',
     },
     {
         subject: 'YouTube Music Team',
         body: 'Updates to artist channels & related subscriptions!',
+        txt: '',
+        status: 'inbox',
     },
     {
         subject: 'Twitter',
         body: 'An update on your account security!',
+        txt: '',
+        status: 'inbox',
     },
 ]
 
@@ -117,13 +139,13 @@ function _createMails() {
     const newMails = storageService.loadFromStorage(MAIL_KEY) || []
     if (!newMails || newMails.length < 1) {
         newMails.push(
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
-            _createMail(demoMails[utilService.getRandomIntInclusive(0,demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
         )
         console.log('newMails', newMails)
         storageService.saveToStorage(MAIL_KEY, newMails)
@@ -131,7 +153,7 @@ function _createMails() {
 }
 
 
-function _createMail({ subject = 'empty', body = 'empty' }) {
+function _createMail({ subject, body, status }) {
     return {
         id: utilService.makeId(),
         subject,
@@ -141,5 +163,10 @@ function _createMail({ subject = 'empty', body = 'empty' }) {
         removedAt: null,
         from: 'momo@momo.com',
         to: 'user@appsus.com',
+        status,
+        txt: 'puki', // no need to support complex text search
+        isRead: true, // (optional property, if missing: show all)
+        isStared: false, // (optional property, if missing: show all)
+        // lables: ['important', 'romantic'] // has any of the labels
     }
 }
