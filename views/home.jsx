@@ -17,7 +17,7 @@ export function Home() {
 
 
             <div className="div-header.image">
-                <img src="../assets/img/logo/logo.png" className="img-logo animate__animated animate__rotateInDownRight animate__delay-1s" />
+                <img src="/assets/img/logo/logo.png" className="img-logo animate__animated animate__rotateInDownRight animate__delay-1s" />
             </div>
         </div>
     </section>
