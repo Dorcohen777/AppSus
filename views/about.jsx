@@ -15,6 +15,6 @@ export function About() {
             Thank you for choosing AppSus, and we hope you enjoy using our website!
         </p>
         <p className="p-copy-right-about">Created by Dor & Vlad</p>
-        <img src="../assets/img/logo/logo.png" className="img-logo-about animate__animated animate__rotateInDownRight animate__delay-1s" />
+        <img src="assets/img/logo/logo.png" className="img-logo-about animate__animated animate__rotateInDownRight animate__delay-1s" />
     </section>
 }
