@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow-x: hidden;
 }
 
 .div-header {
@@ -94,6 +95,17 @@
 
     .div-header-text h1 {
         font-size: 25px;
+    }
+    .div-header-text h2 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px){
+   
+
+    .div-header-text h1 {
+        font-size: 20px;
     }
     .div-header-text h2 {
         font-size: 15px;

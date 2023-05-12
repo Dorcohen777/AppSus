@@ -1,0 +1,36 @@
+.about {
+    max-width: 700px;
+    margin: auto;
+    padding: 50px;
+}
+
+.h1-about {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.h2-about {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.p-about {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.img-logo-about {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.p-copy-right-about{
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
