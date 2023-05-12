@@ -23,6 +23,7 @@ export function NoteList({ notes, onRemoveNote, onEditNote, onChangeColor, onClo
                             <button onClick={() => onCloneNote(note.id)}><i className="fa-solid fa-clone"></i></button>
                             <button onClick={() => onPinClick(note.id)}><i className="fa-solid fa-thumbtack"></i></button>
                         </div>
+                        
                     </section>
 
                 </li>

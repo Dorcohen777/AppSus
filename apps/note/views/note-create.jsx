@@ -9,7 +9,7 @@ import { NewTextNote } from '../cmps/note-create-text.jsx'
 import { NewTodoNote } from '../cmps/note-create.todo.jsx'
 import { NewVideoNote } from '../cmps/note-create.video.jsx'
 
-export function CreateNote({ addNoteToList, setEditNote }) {
+export function CreateNote({ addNoteToList, loadNotes }) {
 
     const [inputValue, setInputValue] = useState('')
     const [inputValueUrl, setInputValueUrl] = useState('')
@@ -103,22 +103,34 @@ export function CreateNote({ addNoteToList, setEditNote }) {
         if (isTxt) {
             const newNote = noteService.buildNoteText(inputValue)
             noteService.createNewNote("NoteTxt", newNote)
-            addNoteToList(newNote)
+                .then(() => {
+                    loadNotes()
+                    addNoteToList(newNote)
+                })
 
         } else if (isImg) {
             const newImg = noteService.buildNoteImage(inputValue, inputValueUrl)
-            noteService.createNewNote( "NoteImg", newImg, inputValueUrl)
-            addNoteToList(newImg)
+            noteService.createNewNote("NoteImg", newImg, inputValueUrl)
+                .then(() => {
+                    loadNotes()
+                    addNoteToList(newImg)
+                })
 
         } else if (isTodos) {
             const newTodo = noteService.buildNoteTodo(todos)
-            noteService.createNewNote( "NoteTodo", newTodo)
-            addNoteToList(newTodo)
+            noteService.createNewNote("NoteTodo", newTodo)
+                .then(() => {
+                    loadNotes()
+                    addNoteToList(newTodo)
+                })
 
         } else if (isVideo) {
             const newVideo = noteService.buildNoteVideo(inputValue, inputValueUrl)
             noteService.createNewNote("NoteVideo", newVideo,)
-            addNoteToList(newVideo)
+                .then(() => {
+                    loadNotes()
+                    addNoteToList(newVideo)
+                })
         }
     }
 

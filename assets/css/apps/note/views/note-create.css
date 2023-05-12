@@ -18,7 +18,7 @@
     border-radius: 0.5rem;
     background-color: #202124;
     color: #E2E2E3;
-    margin: 20px;
+    margin: 1rem 5px;
     width: 300px;
     border: 1px solid #E2E2E3;
 }
@@ -34,7 +34,7 @@
     border-radius: 8px;
     background-color: #4768c9;
     color: #E2E2E3;
-    margin: 20px;
+    margin: 5px;
     cursor: pointer;
 }
 

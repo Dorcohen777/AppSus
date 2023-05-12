@@ -1,4 +1,4 @@
-const { useEffect, useState, useRef } = React
+const { useEffect, useState } = React
 
 import { TextEditor } from './text-editor.jsx'
 import { ImageEditor } from './image-editor.jsx'
@@ -47,20 +47,20 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
         }
 
-        // start of video note editing
-        if (target.name === 'videoUrl') {
-            setNewVideoUrl(target.value)
-            setCurrNote(prevNote => ({
-                ...prevNote,
-                url: noteService.getYoutubeVideoId(target.value),
-            }))
-        } else if (target.name = 'videoTitle') {
-            setVideoTitle(target.value)
-            setCurrNote(prevNote => ({
-                ...prevNote,
-                title: target.value
-            }))
-        }
+        // // start of video note editing
+        // if (target.name === 'videoUrl') {
+        //     setNewVideoUrl(target.value)
+        //     setCurrNote(prevNote => ({
+        //         ...prevNote,
+        //         url: noteService.getYoutubeVideoId(target.value),
+        //     }))
+        // } else if (target.name = 'videoTitle') {
+        //     setVideoTitle(target.value)
+        //     setCurrNote(prevNote => ({
+        //         ...prevNote,
+        //         title: target.value
+        //     }))
+        // }
         // end of video note editing
 
         // start of image note editing

@@ -37,7 +37,8 @@ export function NoteIndex() {
 
     // when user click on remove butotn
     function onRemoveNote(noteId) {
-        loadNotes()
+        // loadNotes()
+        console.log('noteID from remove btn', noteId)
         noteService.remove(noteId).then(() => {
             const updateList = notes.filter(note => note.id !== noteId)
             setNotes(updateList)
@@ -64,6 +65,7 @@ export function NoteIndex() {
         asyncStorageService.post('notesDB', newNote)
             .then(() => {
                 addNoteToList(newNote);
+                loadNotes()
             })
             .catch((err) => {
                 console.log('failed to clone note', err)
@@ -99,7 +101,7 @@ export function NoteIndex() {
 
             {isChangeColor && <ChangeColor currNoteId={currNoteId} loadNotes={loadNotes} />}
             {isNoteEdit && <EditNote currNoteId={currNoteId} loadNotes={loadNotes} />}
-            <CreateNote addNoteToList={addNoteToList} />
+            <CreateNote addNoteToList={addNoteToList} loadNotes={loadNotes} />
             <NoteList notes={notes} onRemoveNote={onRemoveNote} onEditNote={onEditNote} onChangeColor={onChangeColor} onCloneNote={onCloneNote} cloneNote={cloneNote} onPinClick={onPinClick} />
 
         </main>
