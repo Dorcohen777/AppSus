@@ -27,18 +27,24 @@
     color: #E2E2E3;
 }
 
+.input-create-note:hover{
+    background-color: #2f3b5f;
+  color: #E2E2E3;
+}
+
 .btn-create {
     padding: 10px 20px;
     font-size: 18px;
     border: none;
     border-radius: 8px;
-    background-color: #4768c9;
+    background-color: #202124;
     color: #E2E2E3;
     margin: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-create:hover {
-    background-color: #123393;
+    background-color: #2f3b5f;
     color: #E2E2E3;
 }
