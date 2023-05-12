@@ -1,24 +1,35 @@
-header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
-}
-
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
-}
-
-nav a {
-    margin: .5em;
-}
-
-nav a:active {
-    color: purple;
-}
-
-nav a.active {
-    color: darkblue;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-header img {
+    height: 3rem;
+  }
+  
+  .app-header h3 {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+    color: #000;
+  }
+  
+  .app-header nav {
+    display: flex;
+  }
+  
+  .app-header a {
+    margin-left: 1rem;
+    color: #000;
     font-weight: bold;
-    text-decoration: overline;
-}
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .app-header a:hover {
+    color: #FFAE80;
+  }
+  
