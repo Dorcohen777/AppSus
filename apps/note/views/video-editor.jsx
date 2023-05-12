@@ -16,10 +16,10 @@ export function VideoEditor({ onEditSubmit, handleEditChange, currNote, setEditN
                 <form onSubmit={onEditSubmit} className="editor-form">
 
                     <h2>Enter video url</h2>
-                    <input type="text" name="videoUrl" onChange={handleEditChange} value={currNote.url} placeholder="enter new url" />
+                    <input type="text" name="url" onChange={handleEditChange} value={currNote.url} placeholder="enter new url" />
 
                     <h2>Enter new title</h2>
-                    <input type="text" name="videoTitle" onChange={handleEditChange} value={currNote.title} />
+                    <input type="text" name="txt" onChange={handleEditChange} value={currNote.title} />
 
                     <button>Save</button>
                 </form>

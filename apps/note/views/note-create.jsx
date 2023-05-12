@@ -1,7 +1,6 @@
 const { useEffect, useState } = React
 
 
-
 import { noteService } from '../services/note.service.js'
 
 import { NewImageNote } from '../cmps/note-create-image.jsx'
@@ -138,7 +137,7 @@ export function CreateNote({ addNoteToList, loadNotes }) {
         <section className='section-create'>
 
             <div className='div-create-note'>
-                <h1 className='h1-note-creator'>Choose your note</h1>
+                <h1 className='h1-note-creator '>Choose your note</h1>
 
                 <div>
                     <button className='btn-create-text' onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>

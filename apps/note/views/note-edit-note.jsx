@@ -47,22 +47,6 @@ export function EditNote({ currNoteId, loadNotes }) {
             }
         }
 
-        // // start of video note editing
-        // if (target.name === 'videoUrl') {
-        //     setNewVideoUrl(target.value)
-        //     setCurrNote(prevNote => ({
-        //         ...prevNote,
-        //         url: noteService.getYoutubeVideoId(target.value),
-        //     }))
-        // } else if (target.name = 'videoTitle') {
-        //     setVideoTitle(target.value)
-        //     setCurrNote(prevNote => ({
-        //         ...prevNote,
-        //         title: target.value
-        //     }))
-        // }
-        // end of video note editing
-
         // start of image note editing
         if (target.name === 'url') {
             setNewUrl(target.value)
@@ -76,6 +60,24 @@ export function EditNote({ currNoteId, loadNotes }) {
                 }))
             }
         }
+
+        // start of video note editing
+        if (target.name === 'url') {
+            setNewVideoUrl(target.value)
+            if (noteType === 'NoteVideo') {
+                setCurrNote(prevNote => ({
+                    ...prevNote,
+                    url: noteService.getYoutubeVideoId(target.value),
+                }))
+            }
+        } else if (target.name = 'txt') {
+            setVideoTitle(target.value)
+            setCurrNote(prevNote => ({
+                ...prevNote,
+                title: target.value
+            }))
+        }
+        // end of video note editing
 
     }
 
