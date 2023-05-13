@@ -20,7 +20,7 @@ export function MailAdd({ onCloseAddMail }) {
 
     function onClickSend(ev) {
         ev.preventDefault()
-        setNewMail(prevBook => ({ ...prevBook, sentAt: Date.now() }))
+        setNewMail(prevBook => ({ ...prevBook, sentAt: Date.now(), status: 'sent' }))
     }
 
     function sendMail() {
