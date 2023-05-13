@@ -45,11 +45,11 @@ export function MailMainDetails() {
     const { from, to, subject, body, txt } = mail
     return (
         <section className="mail-main-details">
-            <article>From: {from}</article>
-            <article>To: {to}</article>
-            <article>Subject: {subject}</article>
-            <article>Body: {body}</article>
-            <article>Text: {txt}</article>
+            <article className="mail-details-from">From: {from}</article>
+            <article className="mail-details-to">To: {to}</article>
+            <article className="mail-details-subject">Subject: {subject}</article>
+            <article className="mail-details-body">Body: {body}</article>
+            <article className="mail-details-text">Text: {txt}</article>
         </section>
     )
 }

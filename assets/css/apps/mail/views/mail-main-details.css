@@ -1,4 +1,39 @@
-/* .mail-main-details{ */
-    /* background-color: cornflowerblue; */
-/* } */
-
+.mail-main-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  
+  .mail-details-from {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mail-details-to {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mail-details-subject {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .mail-details-body {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    white-space: pre-wrap;
+  }
+  
+  .mail-details-text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    white-space: pre-wrap;
+  }
+  
