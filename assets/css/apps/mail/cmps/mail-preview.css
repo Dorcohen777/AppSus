@@ -41,6 +41,19 @@
     min-width: 0;
     padding-inline-end: 10px;
 }
-.mail-content span{
+
+.mail-content span {
     overflow: hidden;
+}
+
+.mail-buttons {
+    display: none;
+}
+
+.mail-preview:hover .mail-buttons {
+    display: inline-block;
+}
+
+.mail-preview:hover .mail-date {
+    display: none;
 }

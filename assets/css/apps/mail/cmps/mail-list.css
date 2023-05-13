@@ -4,6 +4,10 @@
      overflow: hidden;
  }
 
+ .loading-notification{
+    text-align: center;
+ }
+
  .mail-table,
  .mail-table td {
      border: 1px solid black;
@@ -12,7 +16,6 @@
  }
 
  .mail-table .mail-preview {
-     /* padding-inline: 40px; */
      padding-block: 5px;
  }
 
@@ -20,29 +23,3 @@
      border-block: 2px solid black;
  }
 
- .mail-title {
-     /* flex-grow: 4; */
-     /* overflow: hidden; */
- }
-
- .mail-content {
-     /* flex-grow: 9; */
-     /* overflow: hidden; */
- }
-
- .mail-date {
-     /* flex-grow: 1; */
-     /* width: 10%; */
- }
-
- .mail-buttons {
-     display: none;
- }
-
- .mail-preview:hover .mail-buttons {
-     display: inline-block;
- }
-
- .mail-preview:hover .mail-date {
-     display: none;
- }

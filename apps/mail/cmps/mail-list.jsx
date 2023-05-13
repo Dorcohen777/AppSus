@@ -6,12 +6,12 @@ const { useState, useEffect } = React
 
 //TODO:Make status an array, in order to have a category house multiple statuses
 export function MailList({ filterBy }) {
-    const [mails, setMails] = useState([])
+    const [mails, setMails] = useState(null)
     // const [filterMailsBy,setFilterMailsBy]=useState(filterBy)
 
     useEffect(() => {
         console.log('filterBy', filterBy)
-        if (mails.length < 1) loadMails()
+        loadMails()
     }, [])
 
     // useEffect(()=>{
@@ -100,7 +100,8 @@ export function MailList({ filterBy }) {
             })
     }
 
-    if (mails.length < 1) return
+    if (!mails) return <span className="loading-notification">Loading list...</span>
+    if (mails.length < 1) return <span className="loading-notification">Empty List</span>
     return (
         <section className="mail-list">
             <table className="mail-table">
