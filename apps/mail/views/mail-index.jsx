@@ -27,7 +27,6 @@ export function MailIndex() {
 
 
 
-
     function onSetFilterBy(filterBy) {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }
