@@ -1,0 +1,172 @@
+.book-preview {
+  text-align: center;
+  padding: 0.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-preview h4 {
+  text-transform: capitalize;
+
+}
+
+.book-preview img {
+  max-width: 100px;
+}
+
+.book-description button {
+  background-color: #2a3d50;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+.book-description button:hover {
+  background-color: #0c1117;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.book-product-details button{
+  background-color: #2a3d50;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+.book-product-details button:hover {
+  background-color: #0c1117;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Reviews section css styleing */
+
+.reviews-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.reviews-submit ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reviews-submit li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-submit li:last-child {
+  margin-bottom: 0;
+}
+
+.reviews-submit button {
+  background-color: #ff5c5c;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.reviews-submit button:hover {
+  background-color: #f13c3c;
+}
+
+.section-reviews {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f2f2f2;
+}
+
+.section-reviews ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-reviews li {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.section-reviews li:last-child {
+  margin-bottom: 0;
+}
+
+.section-reviews li::before {
+  content: "⭐️";
+  color: #ffc107;
+  margin-right: 0.5rem;
+}
+
+/* reviews submit input styleing */
+
+.div-reviews-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.div-reviews-inputs label {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.div-reviews-inputs input,
+.div-reviews-inputs select {
+  flex: 1;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  max-width: fit-content;
+  background-color: #f2f2f2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.div-reviews-inputs button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-left: 1rem;
+}
+
+.div-reviews-inputs button:hover {
+  background-color: #3E8E41;
+}

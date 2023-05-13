@@ -1,7 +1,6 @@
 const { Link, NavLink } = ReactRouterDOM
 
 
-
 export function Home() {
     return <section className="home">
         <div className="div-header">

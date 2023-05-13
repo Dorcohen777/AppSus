@@ -1,0 +1,53 @@
+.book-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.book-details>*:not(:first-child) {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.book-details img {
+    max-width: 200px;
+    display: block;
+    margin: auto;
+    margin-top:1rem;
+    
+}
+
+.book-price {
+    margin-inline: auto;
+    font-size: 1.2rem;
+}
+
+.book-title {
+    width: 100%;
+    flex-direction: column;
+    font-size: 1.1rem;
+}
+
+.book-details .expensive {
+    color: red;
+}
+
+.book-details .cheap {
+    color: green;
+}
+
+.book-details h1 {
+    color: var(--clr1);
+    font-size: 2em;
+
+}
+
+.book-details h5 {
+    color: var(--clr2);
+    font-size: 1.2em;
+}
+
+.book-product-details h5 article > * {
+    padding-inline: var(--paddingGap);
+}

@@ -1,0 +1,62 @@
+.book-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .book-filter form{
+    align-items: center;
+  }
+  
+  .book-filter h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  
+  .book-filter form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .book-filter label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .book-filter input[type='text'],
+  .book-filter input[type='number'] {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .book-filter button {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #5b87b2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .book-filter button:hover {
+    background-color: rgb(21, 87, 123);
+  }
