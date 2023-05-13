@@ -142,7 +142,7 @@ export function CreateNote({ addNoteToList, loadNotes }) {
                 <div>
                     <button title='new text' className='btn-create-text' onClick={() => onTextClick()}><i className="fa-solid fa-font"></i></button>
                     <button title='new image' className='btn-create-image' onClick={() => onImageClick()}><i className="fa-solid fa-image"></i></button>
-                    <button title='new list' className='btn-create-list' onClick={() => onTodoClick()}><i className="fa-solid fa-list"></i></button>
+                    <button disabled title='new list' className='btn-create-list' onClick={() => onTodoClick()}><i className="fa-solid fa-list"></i></button>
                     <button title='new video' className='btn-create-video' onClick={() => onVideoClick()}><i className="fa-solid fa-video"></i></button>
                 </div>
 

@@ -7,10 +7,70 @@
 }
 
 .mail-add-modal>* {
-    padding: 1em;
-    width: 400px;
+    margin-bottom: 10px;
 }
 
-.mail-add-modal input{
+.h2-new-message {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.h3-css-from {
+    display: inline-block;
+    width: 200px;
+}
+
+.span-from {
+    display: inline-block;
+    width: calc(100% - 70px);
+}
+
+.input-mail-to,
+.input-mail-subject,
+.input-mail-content {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-send {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-send:hover {
+    background-color: #3670e8;
+}
+
+.mail-btn-exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f1f3f4;
+    color: #5f6368;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.mail-btn-exit:hover {
+    background-color: #d6d6d6;
 }
