@@ -10,14 +10,29 @@ const { useNavigate, Outlet } = ReactRouterDOM
 export function MailIndex() {
     //BETTER TO KEEP THE USE STATE IN THE LOWEST DESCENDANT POSSIBLE
     const [isMailAdd, setIsMailAdd] = useState(false)
+    const [filterBy, setFilterBy] = useState({})
 
     const navigate = useNavigate()
     useEffect(() => {
         navigate('/mail/inbox')
+
     }, [])
 
     useEffect(() => {
     }, [isMailAdd])
+
+    useEffect(() => {
+        // console.log('filterBy', filterBy)
+    }, [filterBy])
+
+
+
+    
+    function onSetFilterBy(filterBy) {
+        setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
+    }
+
+
 
 
     function onAddMail() {
@@ -32,11 +47,11 @@ export function MailIndex() {
 
     return (
         <section className="mail-index">
-            <MailHeader />
+            <MailHeader filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
 
             <section className="mail-main">
                 <MailNavSideBar onAddMail={onAddMail} />
-                <Outlet />
+                <Outlet context={[filterBy, setFilterBy]} />
             </section>
 
             {isMailAdd && <MailAdd onCloseAddMail={onCloseAddMail} />}

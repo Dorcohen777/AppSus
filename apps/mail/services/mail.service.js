@@ -95,9 +95,11 @@ function query(filterBy = {}) {
 function getFilteredMail(filterBy = {}, mail) {
     let currFilterStatus = 'any'
     let currFilterIsStared = 'any'
+    let currFilterSubject = ''
     for (const filterByKey in filterBy) {
         if (filterByKey === 'status') currFilterStatus = filterBy[filterByKey]
         if (filterByKey === 'isStared') currFilterIsStared = filterBy[filterByKey]
+        if (filterByKey === 'subject') currFilterSubject = filterBy[filterByKey]
     }
     // console.log('==================')
     // console.log('mail.status', 'mail.isStarred ->', mail.status, mail.isStared)
@@ -105,10 +107,12 @@ function getFilteredMail(filterBy = {}, mail) {
     // console.log('(currFilterStatus === mail.status)', (currFilterStatus === mail.status))
     // console.log(`(currFilterIsStared === 'any')`, (currFilterIsStared === 'any'))
     // console.log('(currFilterIsStared === mail.isStared)', (currFilterIsStared === mail.isStared))
+    console.log('currFilterSubject', currFilterSubject)
     // console.log('==================')
     return (
         ((currFilterStatus === 'any') || (currFilterStatus === mail.status)) &&
-        ((currFilterIsStared === 'any') || (currFilterIsStared === mail.isStared))
+        ((currFilterIsStared === 'any') || (currFilterIsStared === mail.isStared)) &&
+        ((mail.subject.toLowerCase().includes(currFilterSubject,0)))
     )
 }
 
