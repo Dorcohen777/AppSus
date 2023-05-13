@@ -76,7 +76,7 @@
     right: 20px;
     top: 70px;
     background-color: #3F3D56;
-    
+    z-index: 5000;
   }
 
   .app-header a {
