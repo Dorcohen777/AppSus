@@ -86,7 +86,6 @@ export const mailService = {
 }
 
 
-
 function query(filterBy = {}) {
     return asyncStorageService.query(MAIL_KEY)
         .then(mails => {

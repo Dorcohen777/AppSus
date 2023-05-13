@@ -7,18 +7,22 @@ const { useState, useEffect } = React
 //TODO:Make status an array, in order to have a category house multiple statuses
 export function MailList({ filterBy }) {
     const [mails, setMails] = useState([])
+    // const [filterMailsBy,setFilterMailsBy]=useState(filterBy)
 
     useEffect(() => {
         console.log('filterBy', filterBy)
-        loadMails()
+        if (mails.length < 1) loadMails()
     }, [])
+
+    // useEffect(()=>{
+
+    // },[filterMailsBy])
 
 
     function loadMails() {
         mailService.query(filterBy)
             .then(setMails)
     }
-
 
     function onTrashMail(ev, id) {
         ev.preventDefault()
@@ -88,12 +92,15 @@ export function MailList({ filterBy }) {
             .then(mail => {
                 console.log('edited mail', mail)
                 loadMails()
+                // reFilterMails()
+                // setMails(mail)
             })
             .catch(err => {
                 console.log('err Could not save mail', err)
             })
     }
 
+    if (mails.length < 1) return
     return (
         <section className="mail-list">
             <table className="mail-table">
