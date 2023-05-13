@@ -96,7 +96,6 @@ export function MailList({ filterBy }) {
 
     return (
         <section className="mail-list">
-            <h2>Mail list here</h2>
             <table className="mail-table">
                 <tbody>
                     {mails.map((mail) =>
