@@ -7,7 +7,7 @@ export function MailMainSent() {
     const [filterBy, setFilterBy] = useOutletContext()
 
     useEffect(() => {
-        setFilterBy({ ...filterBy, status: 'sent' })
+        setFilterBy({ ...filterBy, status: 'sent', isStared: 'any' })
     }, [])
 
     return (

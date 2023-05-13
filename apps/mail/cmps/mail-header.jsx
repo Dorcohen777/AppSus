@@ -5,6 +5,7 @@ export function MailHeader({ filterBy, onSetFilterBy }) {
 
     useEffect(() => {
         onSetFilterBy(filterByToEdit)
+        console.log('filterBy from mail header', filterBy)
     }, [filterByToEdit])
 
 

@@ -7,7 +7,7 @@ export function MailMainAll() {
     const [filterBy, setFilterBy] = useOutletContext()
 
     useEffect(() => {
-        setFilterBy({ ...filterBy })
+        setFilterBy({ ...filterBy, status: 'any', isStared: 'any' })
     }, [])
 
     return (

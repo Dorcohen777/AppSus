@@ -22,12 +22,12 @@ export function MailIndex() {
     }, [isMailAdd])
 
     useEffect(() => {
-        // console.log('filterBy', filterBy)
+        console.log('filterBy', filterBy)
     }, [filterBy])
 
 
 
-    
+
     function onSetFilterBy(filterBy) {
         setFilterBy(prevFilterBy => ({ ...prevFilterBy, ...filterBy }))
     }

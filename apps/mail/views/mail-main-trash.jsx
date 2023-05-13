@@ -7,7 +7,7 @@ export function MailMainTrash() {
     const [filterBy, setFilterBy] = useOutletContext()
 
     useEffect(() => {
-        setFilterBy({ ...filterBy, status: 'trash' })
+        setFilterBy({ ...filterBy, status: 'trash', isStared: 'any' })
     }, [])
 
     return (

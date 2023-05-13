@@ -7,17 +7,18 @@ const { useState, useEffect } = React
 //TODO: need to rethink where mail-list, mail-filter, mail-preview and mail-index will be, and their load order
 export function MailList({ filterBy }) {
     const [mails, setMails] = useState(null)
-    // const [editFilterBy, setEditFilterBy] = useState(filterBy)
+    // const [editFilterBy, setEditFilterBy] = useState()
 
     useEffect(() => {
         console.log('filterBy from Mail List', filterBy)
         loadMails()
     }, [filterBy])
 
-    // useEffect(() => {
-    //     console.log('filterBy from Mail List', filterBy)
-    //     // console.log('edit FilterBy from Mail List', editFilterBy)
-    // }, [filterBy])
+    useEffect(() => {
+        console.log('filterBy from Mail List', filterBy)
+
+    }, [mails])
+
 
 
     function loadMails() {

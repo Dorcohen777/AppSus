@@ -7,8 +7,9 @@ export function MailMainDraft() {
     const [filterBy, setFilterBy] = useOutletContext()
 
     useEffect(() => {
-        setFilterBy({ ...filterBy, status: 'draft' })
+        setFilterBy({ ...filterBy, status: 'draft', isStared: 'any' })
     }, [])
+
 
     return (
         <MailList filterBy={filterBy} />
