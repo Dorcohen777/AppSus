@@ -1,25 +1,18 @@
  /* mail list */
  .mail-list {
      background-color: var(--mail-bg-clr0);
+     overflow: hidden;
  }
 
  .mail-table,
  .mail-table td {
      border: 1px solid black;
      border-collapse: collapse;
- }
-
- .mail-table {
      width: 100%;
  }
 
  .mail-table .mail-preview {
-     display: flex;
-     position: relative;
- }
-
- .mail-table .mail-preview {
-     padding-inline: 40px;
+     /* padding-inline: 40px; */
      padding-block: 5px;
  }
 
@@ -28,16 +21,18 @@
  }
 
  .mail-title {
-     flex-grow: 4;
+     /* flex-grow: 4; */
+     /* overflow: hidden; */
  }
 
  .mail-content {
-     flex-grow: 9;
+     /* flex-grow: 9; */
+     /* overflow: hidden; */
  }
 
- .mail-date-buttons {
-     flex-grow: 1;
-     width: 10%;
+ .mail-date {
+     /* flex-grow: 1; */
+     /* width: 10%; */
  }
 
  .mail-buttons {

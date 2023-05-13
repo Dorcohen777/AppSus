@@ -1,3 +1,14 @@
+.mail-preview {
+    white-space: nowrap;
+    display: flex;
+    position: relative;
+    min-width: 0;
+}
+
+.mail-preview>*:not(.mail-buttons) {
+    display: flex;
+}
+
 .mail-unread {
     font-weight: 700;
     background-color: var(--mail-bg-clr1);
@@ -11,3 +22,25 @@
     color: inherit;
 }
 
+.mail-star {
+    width: 40px;
+}
+
+.mail-title {
+    max-width: 170px;
+    padding-inline-end: calc(var(--mail-gap-padding) * 3);
+    flex-basis: 170px;
+}
+
+.mail-title span {
+    overflow: hidden;
+}
+
+.mail-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-inline-end: 10px;
+}
+.mail-content span{
+    overflow: hidden;
+}
