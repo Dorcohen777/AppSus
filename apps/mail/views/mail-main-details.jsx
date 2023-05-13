@@ -26,13 +26,14 @@ export function MailMainDetails() {
     }
 
     if (!mail) return
-    const { from, to, subject, body } = mail
+    const { from, to, subject, body, txt } = mail
     return (
         <section className="mail-main-details">
             <article>From: {from}</article>
             <article>To: {to}</article>
             <article>Subject: {subject}</article>
             <article>Body: {body}</article>
+            <article>Text: {txt}</article>
         </section>
     )
 }
