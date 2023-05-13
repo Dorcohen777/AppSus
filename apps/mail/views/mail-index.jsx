@@ -39,8 +39,8 @@ export function MailIndex() {
         console.log('on add mail')
         setIsMailAdd(true)
     }
-    function onCloseAddMail(ev) {
-        ev.preventDefault()
+    function closeAddMail() {
+        // ev.preventDefault()
         console.log('on CloseMail')
         setIsMailAdd(false)
     }
@@ -54,7 +54,7 @@ export function MailIndex() {
                 <Outlet context={[filterBy, setFilterBy]} />
             </section>
 
-            {isMailAdd && <MailAdd onCloseAddMail={onCloseAddMail} />}
+            {isMailAdd && <MailAdd closeAddMail={closeAddMail} />}
         </section>
     )
 }

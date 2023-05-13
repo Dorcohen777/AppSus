@@ -14,7 +14,7 @@ export function BookHome() {
     }
 
     return (
-        <section ref={imgRef} onClick={onTada} className="" >
+        <section ref={imgRef} onClick={onTada} className="miss-books-home" >
             <h1>Welcome To Miss Books!</h1>
         </section>
     )

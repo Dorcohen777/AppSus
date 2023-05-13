@@ -2,13 +2,14 @@ import { mailService } from "../services/mail.service.js"
 
 const { useState, useEffect } = React
 
-export function MailAdd({ onCloseAddMail }) {
+export function MailAdd({ closeAddMail }) {
 
     const [newMail, setNewMail] = useState(mailService.getEmptyNewMail())
 
+
     useEffect(() => {
-        if (newMail.sentAt) sendMail()
-    }, [newMail])
+        if (newMail.status === 'sent' || newMail.status === 'draft') sendMail()
+    }, [newMail.status])
 
 
     function handleChange({ target }) {
@@ -16,6 +17,11 @@ export function MailAdd({ onCloseAddMail }) {
         const value = target.type === 'number' ? (+target.value || '') : target.value
         console.log('[field]: value', [field], value)
         setNewMail(prevBook => ({ ...prevBook, [field]: value }))
+    }
+
+    function onCloseAddMail(ev) {
+        ev.preventDefault()
+        setNewMail(prevBook => ({ ...prevBook, status: 'draft' }))
     }
 
     function onClickSend(ev) {
@@ -30,10 +36,10 @@ export function MailAdd({ onCloseAddMail }) {
             .catch((err) => {
                 console.log('err Failed Saving', err)
             })
-            .finally(() => onCloseAddMail())
+            .finally(() => closeAddMail())
     }
 
-    const { from, to, subject, body } = newMail
+    const { from, to, subject, body, txt } = newMail
     return (
         <section className="mail-add-modal">
             <button className="mail-btn-exit" onClick={onCloseAddMail}>X</button>
@@ -53,8 +59,12 @@ export function MailAdd({ onCloseAddMail }) {
                 <input className="input-mail-subject" type="text" name="subject" value={subject} onChange={handleChange}></input>
             </section>
             <section>
-                <h3 className="h3-mail-content">Content: </h3>
+                <h3 className="h3-mail-content">Body: </h3>
                 <input className="input-mail-subject" type="text" name="body" value={body} onChange={handleChange}></input>
+            </section>
+            <section>
+                <h3 className="h3-mail-text">Text: </h3>
+                <input className="input-mail-subject" type="text" name="txt" value={txt} onChange={handleChange}></input>
             </section>
             <button className="btn-send" onClick={onClickSend}>Send</button>
         </section>

@@ -152,6 +152,7 @@ function getEmptyNewMail() {
         id: '',
         subject: '',
         body: '',
+        txt:'',
         isRead: false,
         sentAt: null,
         removedAt: null,
@@ -166,6 +167,20 @@ function _createMails() {
     const newMails = storageService.loadFromStorage(MAIL_KEY) || []
     if (!newMails || newMails.length < 1) {
         newMails.push(
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
+            _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
             _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
             _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
             _createMail(demoMails[utilService.getRandomIntInclusive(0, demoMails.length - 1)]),
