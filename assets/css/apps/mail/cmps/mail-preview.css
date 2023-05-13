@@ -1,11 +1,6 @@
-.mail-table,
-.mail-table td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-.mail-unread{
+.mail-unread {
     font-weight: 700;
+    background-color: var(--mail-bg-clr1);
 }
 
 .goldStar {
@@ -16,56 +11,3 @@
     color: inherit;
 }
 
-.mail-table {
-    width: 100%;
-}
-
-/* .mail-table span{ */
-/* overflow-x: hidden; */
-/* white-space: nowrap; */
-
-/* max-width: 25%; */
-/* overflow: hidden; */
-/* max-height: 10px; */
-/* } */
-
-.mail-table .mail-preview {
-    display: flex;
-    position: relative;
-}
-
-/* .mail-preview{} */
-
-.mail-table td>* {
-    padding-inline: 40px;
-    padding-block: 5px;
-}
-
-.mail-table td:hover {
-    border-block: 2px solid black;
-}
-
-.mail-title {
-    flex-grow: 4;
-}
-
-.mail-content {
-    flex-grow: 9;
-}
-
-.mail-date-buttons {
-    flex-grow: 1;
-    width: 10%;
-}
-
-.mail-buttons {
-    display: none;
-}
-
-td:hover .mail-buttons {
-    display: inline-block;
-}
-
-td:hover .mail-date {
-    display: none;
-}

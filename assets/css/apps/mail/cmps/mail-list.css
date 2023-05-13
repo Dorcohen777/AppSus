@@ -2,3 +2,52 @@
  .mail-list {
      background-color: var(--mail-bg-clr0);
  }
+
+ .mail-table,
+ .mail-table td {
+     border: 1px solid black;
+     border-collapse: collapse;
+ }
+
+ .mail-table {
+     width: 100%;
+ }
+
+ .mail-table .mail-preview {
+     display: flex;
+     position: relative;
+ }
+
+ .mail-table .mail-preview {
+     padding-inline: 40px;
+     padding-block: 5px;
+ }
+
+ .mail-table td:hover {
+     border-block: 2px solid black;
+ }
+
+ .mail-title {
+     flex-grow: 4;
+ }
+
+ .mail-content {
+     flex-grow: 9;
+ }
+
+ .mail-date-buttons {
+     flex-grow: 1;
+     width: 10%;
+ }
+
+ .mail-buttons {
+     display: none;
+ }
+
+ .mail-preview:hover .mail-buttons {
+     display: inline-block;
+ }
+
+ .mail-preview:hover .mail-date {
+     display: none;
+ }
