@@ -36,27 +36,27 @@ export function MailAdd({ onCloseAddMail }) {
     const { from, to, subject, body } = newMail
     return (
         <section className="mail-add-modal">
-            <button onClick={onCloseAddMail}>X</button>
+            <button className="mail-btn-exit" onClick={onCloseAddMail}>X</button>
             <section>
-                <h2>New Message</h2>
+                <h2 className="h2-new-message">New Message</h2>
             </section>
             <section>
-                <h3>From: </h3>
-                <span>{from}</span>
+                <h3 className="h3-css-from">From: </h3>
+                <span className="span-from">{from}</span>
             </section>
             <section>
-                <h3>To: </h3>
-                <input type="text" name="to" value={to} onChange={handleChange}></input>
+                <h3 className="h3-mail-to">To: </h3>
+                <input className="input-mail-to" type="text" name="to" value={to} onChange={handleChange}></input>
             </section>
             <section>
-                <h3>Subject: </h3>
-                <input type="text" name="subject" value={subject} onChange={handleChange}></input>
+                <h3 className="h3-mail-subject">Subject: </h3>
+                <input className="input-mail-subject" type="text" name="subject" value={subject} onChange={handleChange}></input>
             </section>
             <section>
-                <h3>Content: </h3>
-                <input type="text" name="body" value={body} onChange={handleChange}></input>
+                <h3 className="h3-mail-content">Content: </h3>
+                <input className="input-mail-subject" type="text" name="body" value={body} onChange={handleChange}></input>
             </section>
-            <button onClick={onClickSend}>Send</button>
+            <button className="btn-send" onClick={onClickSend}>Send</button>
         </section>
     )
 }
