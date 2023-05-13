@@ -25,7 +25,7 @@ export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadStat
             <td>
                 <Link to={`/mail/details/${mail.id}`}>
                     <section className={`mail-preview ${!mail.isRead && 'mail-unread'}`}>
-                        <section>
+                        <section className="mail-star">
                             <i className={`btnLookIcon ${mail.isStared && 'goldStar'} fa-solid fa-star`} onClick={(ev) => onStarMail(ev, mail.id, !mail.isStared)}></i>
                         </section>
                         <section className="mail-title"><span>{mail.subject}</span></section>
