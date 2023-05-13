@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-.mail-preview>*:not(.mail-buttons) {
+.mail-preview>*:not(.mail-star,.mail-buttons) {
     display: flex;
 }
 
@@ -25,8 +25,8 @@
 }
 
 .mail-star {
-    flex-shrink: auto;
-    width: 40px;
+    /* flex-shrink: auto; */
+    /* width: 40px; */
 }
 
 .mail-title {
