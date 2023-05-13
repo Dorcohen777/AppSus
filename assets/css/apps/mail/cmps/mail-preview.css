@@ -4,6 +4,10 @@
     border-collapse: collapse;
 }
 
+.mail-unread{
+    font-weight: 700;
+}
+
 .goldStar {
     color: gold;
 }

@@ -14,7 +14,6 @@ export function MailList({ filterBy }) {
     }, [])
 
 
-
     function loadMails() {
         mailService.query(filterBy)
             .then(setMails)
@@ -70,51 +69,29 @@ export function MailList({ filterBy }) {
         }
     }
 
-    function onToggleReadState(ev, id) {
+    function onToggleReadState(ev, id, isRead) {
         ev.preventDefault()
         console.log('id TOGGLE READ STATE', id)
-        if (filterBy.status === 'read') {
-            mailService.changeMailState(id, { status: 'inbox' })
-                .then(mail => {
-                    console.log('edited mail', mail)
-                    loadMails()
-                })
-                .catch(err => {
-                    console.log('err Could not save mail', err)
-                })
-        } else {
-            mailService.changeMailState(id, { status: 'read' })
-                .then(mail => {
-                    console.log('edited mail', mail)
-                    loadMails()
-                })
-                .catch(err => {
-                    console.log('err Could not save mail', err)
-                })
-        }
+        mailService.changeMailState(id, { isRead: isRead })
+            .then(mail => {
+                console.log('edited mail', mail)
+                loadMails()
+            })
+            .catch(err => {
+                console.log('err Could not save mail', err)
+            })
     }
 
-    function onStarMail(ev, id) {
+    function onStarMail(ev, id, isStared) {
         ev.preventDefault()
-        if (filterBy.status === 'starred') {
-            mailService.changeMailState(id, { status: 'inbox' })
-                .then(mail => {
-                    console.log('edited mail', mail)
-                    loadMails()
-                })
-                .catch(err => {
-                    console.log('err Could not save mail', err)
-                })
-        } else {
-            mailService.changeMailState(id, { status: 'starred' })
-                .then(mail => {
-                    console.log('edited mail', mail)
-                    loadMails()
-                })
-                .catch(err => {
-                    console.log('err Could not save mail', err)
-                })
-        }
+        mailService.changeMailState(id, { isStared: isStared })
+            .then(mail => {
+                console.log('edited mail', mail)
+                loadMails()
+            })
+            .catch(err => {
+                console.log('err Could not save mail', err)
+            })
     }
 
     return (

@@ -24,9 +24,9 @@ export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadStat
         <tr>
             <td>
                 <Link to={`/mail/details/${mail.id}`}>
-                    <section className="mail-preview">
+                    <section className={`mail-preview ${!mail.isRead && 'mail-unread'}`}>
                         <section>
-                            <i className={`btnLookIcon ${mail.status === 'starred' && 'goldStar'} fa-solid fa-star`} onClick={(ev) => onStarMail(ev, mail.id)}></i>
+                            <i className={`btnLookIcon ${mail.isStared && 'goldStar'} fa-solid fa-star`} onClick={(ev) => onStarMail(ev, mail.id,!mail.isStared)}></i>
                         </section>
                         <section className="mail-title"><span>{mail.subject}</span></section>
                         <section className="mail-content"><span>{mail.body}</span></section>
@@ -35,7 +35,7 @@ export function MailPreview({ mail, onArchiveMail, onTrashMail, onToggleReadStat
                             <article className="mail-buttons"><span>
                                 <i className="btnLookIcon fa-solid fa-box-archive" onClick={(ev) => onArchiveMail(ev, mail.id)}></i>
                                 <i className="btnLookIcon fa-solid fa-trash" onClick={(ev) => onTrashMail(ev, mail.id)}></i>
-                                <i className="btnLookIcon fa-solid fa-envelope-open" onClick={(ev) => onToggleReadState(ev, mail.id)} ></i>
+                                <i className="btnLookIcon fa-solid fa-envelope-open" onClick={(ev) => onToggleReadState(ev, mail.id,!mail.isRead)} ></i>
                             </span></article>
                         </section>
                     </section>
