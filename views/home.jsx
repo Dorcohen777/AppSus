@@ -10,6 +10,7 @@ export function Home() {
                 <h2 className="animate__animated animate__fadeIn animate__delay-1s">Experience the Power of Gmail and Google Keeper in One Seamless Platform: Efficiently Manage Your Emails and Notes With User-Friendly Clone</h2>
                 <NavLink to="/mail"><button className="btn-mail animate__animated animate__fadeIn animate__delay-1s">Mail App</button></NavLink>
                 <NavLink to="/note"><button className="btn-keeper animate__animated animate__fadeIn animate__delay-1s">Keeper App</button></NavLink>
+                <NavLink to="/book/home"><button className="btn-keeper animate__animated animate__fadeIn animate__delay-1s">Miss Books App</button></NavLink>
                 <h3 className="animate__animated animate__fadeInUp animate__delay-2s">Created by Dor & Vlad</h3>
 
             </div>
