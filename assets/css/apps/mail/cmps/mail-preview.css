@@ -27,10 +27,9 @@
 }
 
 .mail-title {
-    max-width: 110px;
-    /* overflow: hidden; */
+    max-width: 170px;
     padding-inline-end: calc(var(--mail-gap-padding) * 3);
-    flex-basis: 110px;
+    flex-basis: 170px;
 }
 
 .mail-title span {
@@ -38,8 +37,10 @@
 }
 
 .mail-content {
-    flex-basis: auto;
-    /* flex: 1 1 auto; */
+    flex: 1 1 auto;
     min-width: 0;
     padding-inline-end: 10px;
+}
+.mail-content span{
+    overflow: hidden;
 }
