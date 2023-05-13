@@ -8,10 +8,18 @@ export function AppHeader() {
     }
 
     return <header className="app-header">
-        <Link to="/">
-            <img src="assets/img/logo/logo.png" />
-            <h3>AppSus</h3>
-        </Link>
+
+        <div className="header-nav">
+            <Link to="/">
+                <img src="assets/img/logo/logo.png" />
+            </Link>
+
+            <Link to="/">
+                <h3>AppSus</h3>
+            </Link>
+
+        </div>
+
         <nav className="main-nav">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/mail">Mail</NavLink>
@@ -19,11 +27,13 @@ export function AppHeader() {
             <NavLink to="/note">Book</NavLink>
             <NavLink to="/about">About</NavLink>
         </nav>
+
         <div className="hamburger-menu" onClick={() => toggleMenu()}>
             <span></span>
             <span></span>
             <span></span>
         </div>
+
     </header>
 
 }
