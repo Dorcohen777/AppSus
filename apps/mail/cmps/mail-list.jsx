@@ -4,7 +4,7 @@ import { MailPreview } from "./mail-preview.jsx"
 
 const { useState, useEffect } = React
 
-//TODO:Make status an array, in order to have a category house multiple statuses
+//TODO: need to rethink where mail-list, mail-filter, mail-preview and mail-index will be, and their load order
 export function MailList({ filterBy }) {
     const [mails, setMails] = useState(null)
     // const [filterMailsBy,setFilterMailsBy]=useState(filterBy)

@@ -2,7 +2,9 @@
     white-space: nowrap;
     display: flex;
     position: relative;
+    width: 100%;
     min-width: 0;
+    overflow: hidden;
 }
 
 .mail-preview>*:not(.mail-buttons) {
@@ -23,13 +25,15 @@
 }
 
 .mail-star {
+    flex-shrink: auto;
     width: 40px;
 }
 
 .mail-title {
     max-width: 170px;
-    padding-inline-end: calc(var(--mail-gap-padding) * 3);
     flex-basis: 170px;
+    padding-inline-end: calc(var(--mail-gap-padding) * 3);
+    overflow: hidden;
 }
 
 .mail-title span {
@@ -40,10 +44,18 @@
     flex: 1 1 auto;
     min-width: 0;
     padding-inline-end: 10px;
+    overflow: hidden;
 }
 
 .mail-content span {
     overflow: hidden;
+}
+
+/* .mail.buttons, */
+.mail-date {
+    max-width: 170px;
+    flex-basis: 170px;
+    justify-content: flex-end;
 }
 
 .mail-buttons {

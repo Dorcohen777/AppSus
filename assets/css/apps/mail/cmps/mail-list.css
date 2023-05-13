@@ -4,6 +4,12 @@
      overflow: hidden;
  }
 
+ .mail-list *{
+    overflow: hidden;
+    /* width: 100%; */
+    text-overflow: ellipsis;
+ }
+
  .loading-notification{
     text-align: center;
  }

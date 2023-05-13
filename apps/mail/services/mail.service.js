@@ -88,33 +88,28 @@ export const mailService = {
 
 function query(filterBy = {}) {
     return asyncStorageService.query(MAIL_KEY)
-        .then(mails => {
+        .then(mails =>
+            mails.filter(mail => getFilteredMail(filterBy, mail)))
+}
 
-
-            return mails.filter(mail => {
-
-                // return mail.status === filterBy.status
-
-                let currFilterStatus = 'any'
-                let currFilterIsStared = 'any'
-                for (const filterByKey in filterBy) {
-                    if (filterByKey === 'status') currFilterStatus = filterBy[filterByKey]
-                    if (filterByKey === 'isStared') currFilterIsStared = filterBy[filterByKey]
-                }
-                // console.log('==================')
-                // console.log('mail.status', 'mail.isStarred ->', mail.status, mail.isStared)
-                // console.log(`(currFilterStatus === 'any')`, (currFilterStatus === 'any'))
-                // console.log('(currFilterStatus === mail.status)', (currFilterStatus === mail.status))
-                // console.log(`(currFilterIsStared === 'any')`, (currFilterIsStared === 'any'))
-                // console.log('(currFilterIsStared === mail.isStared)', (currFilterIsStared === mail.isStared))
-                // console.log('==================')
-                return (
-                    ((currFilterStatus === 'any') || (currFilterStatus === mail.status)) &&
-                    ((currFilterIsStared === 'any') || (currFilterIsStared === mail.isStared))
-                )
-            }
-            )
-        })
+function getFilteredMail(filterBy = {}, mail) {
+    let currFilterStatus = 'any'
+    let currFilterIsStared = 'any'
+    for (const filterByKey in filterBy) {
+        if (filterByKey === 'status') currFilterStatus = filterBy[filterByKey]
+        if (filterByKey === 'isStared') currFilterIsStared = filterBy[filterByKey]
+    }
+    // console.log('==================')
+    // console.log('mail.status', 'mail.isStarred ->', mail.status, mail.isStared)
+    // console.log(`(currFilterStatus === 'any')`, (currFilterStatus === 'any'))
+    // console.log('(currFilterStatus === mail.status)', (currFilterStatus === mail.status))
+    // console.log(`(currFilterIsStared === 'any')`, (currFilterIsStared === 'any'))
+    // console.log('(currFilterIsStared === mail.isStared)', (currFilterIsStared === mail.isStared))
+    // console.log('==================')
+    return (
+        ((currFilterStatus === 'any') || (currFilterStatus === mail.status)) &&
+        ((currFilterIsStared === 'any') || (currFilterIsStared === mail.isStared))
+    )
 }
 
 function get(mailId) {
