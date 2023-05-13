@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React
 
 import { bookService } from "../services/book.service.js"
 import { utilService } from "../../../services/util.service.js"
-import { storageService } from "../../../services/async-storage.service.js"
+import { asyncStorageService } from "../../../services/async-storage.service.js"
 
 export function BookAdd() {
 
@@ -66,7 +66,7 @@ export function BookAdd() {
 
         console.log('New Book', newBook)
 
-        storageService.post('bookDB', newBook)
+        asyncStorageService.post('bookDB', newBook)
             .then(() => console.log('New google book added'))
             .catch((err) => console.log(err))
 

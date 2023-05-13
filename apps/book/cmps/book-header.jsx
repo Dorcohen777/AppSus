@@ -4,7 +4,7 @@ const { Link, NavLink } = ReactRouterDOM
 export function BookHeader() {
 
     return (
-        <header className="app-header full main-layout">
+        <header className="app-header">
             <h1>Miss Books App</h1>
             <nav className="app-nav">
                 <NavLink to="/book/home">Home</NavLink>
