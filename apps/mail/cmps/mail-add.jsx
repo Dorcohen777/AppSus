@@ -6,7 +6,6 @@ export function MailAdd({ closeAddMail }) {
 
     const [newMail, setNewMail] = useState(mailService.getEmptyNewMail())
 
-
     useEffect(() => {
         if (newMail.status === 'sent' || newMail.status === 'draft') sendMail()
     }, [newMail.status])
