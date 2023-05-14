@@ -5,6 +5,7 @@
   padding: 0 1rem;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .header-nav{
@@ -18,7 +19,6 @@
 
 .app-header h3 {
   font-size: 2rem;
-  color: #000;
 }
 
 .app-header nav {
@@ -27,7 +27,7 @@
 
 .app-header a {
   margin-left: 1rem;
-  color: #000;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
